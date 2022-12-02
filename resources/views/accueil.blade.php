@@ -34,7 +34,7 @@
                 </form>
             @endguest  </ul>
     </nav>
-    <div class="welcome">Bienvenue au musée virtuel des poupées gonflables !</div>
+    <div class="welcome">Bienvenue au musée virtuel !</div>
 </div>
 </body>
 </html>
