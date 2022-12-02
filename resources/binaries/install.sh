@@ -8,7 +8,7 @@ fi
 if [ ! -d ./node_modules ] ; then
   npm install && npm run build
 fi
-fixRights
+sudo fixRights $LOGNAME
 cp .env.example .env
 php artisan key:generate
 echo "#end install"
