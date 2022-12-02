@@ -19,7 +19,7 @@ before_script:
 deploiement:
   script:
     - export NAME
-    - ./build.sh
+    - ./resources/binaries/build.sh
   tags:
     - marathon
   only:
