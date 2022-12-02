@@ -18,8 +18,8 @@ class OeuvreFactory extends Factory {
         $nb = $this->faker->numberBetween(1,4);
         return [
             'nom' => $this->faker->words(3, true),
-            'media_url' => sprintf("oeuvres/oeuvre-%d.jpg",$nb),
-            'thumbnail_url' => sprintf("oeuvres/thumbnail-%d.jpg",$nb),
+            'media_url' => sprintf("images/oeuvres/oeuvre-%d.jpg",$nb),
+            'thumbnail_url' => sprintf("images/thumbnails/thumbnail-%d.jpg",$nb),
             'date_creation' => $this->faker->dateTimeBetween('-3 years', '-6 months'),
             'description' =>Utils::html(),
         ];
