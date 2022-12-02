@@ -2,12 +2,12 @@
 
 #eval `ssh-agent -s`
 #echo "$PRIVATE_KEY" | tr -d '\r' | ssh-add -
-
+echo "verif vendor"
 ssh $NAME@172.31.146.106 "test -d  /srv/comptes/marathon22/$NAME/www/vendor ;  echo $?"
-echo $?
 
+echo "verif www"
 ssh $NAME@172.31.146.106 "test -d  /srv/comptes/marathon22/$NAME/www ; echo $?"
-echo $?
+
 
 #composer install
 #npm install && npm run build
