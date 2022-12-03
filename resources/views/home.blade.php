@@ -35,6 +35,13 @@
                 </form>
             @endguest  </ul>
     </nav>
+
+    @auth
+    <div class="illustration">
+        <img class="photo" src="{{asset('storage/'.Auth::user()->avatar)}}" alt="">
+    </div>
+    @endauth
+
     <div class="welcome">Vous êtes connecté au musée virtuel !</div>
 </div>
 </body>

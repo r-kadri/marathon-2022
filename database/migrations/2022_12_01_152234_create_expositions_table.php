@@ -20,7 +20,7 @@ return new class extends Migration
             $table->dateTime('date_debut');
             $table->dateTime('date_fin');
             $table->unsignedBigInteger('salle_depart_id')->nullable(true);
-            $table->foreign('salle_depart_id')->references('id')->on('salles')->onDelete('cascade');
+//            $table->foreign('salle_depart_id')->references('id')->on('salles')->onDelete('cascade');
 
         });
     }

@@ -44,7 +44,7 @@ php artisan migrate:fresh
 
 # Initialisation des données de départ
 
-cp -r resources/images storage/ storage/app/public
+cp -r resources/images storage/app/public
 
 # Création du lien physique en storage/app/public et public/storage
 

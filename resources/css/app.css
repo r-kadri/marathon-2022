@@ -6,9 +6,6 @@
     min-height: 50rem;
 }
 
-
-
-
 .welcome {
     display: flex;
     flex: 1;
@@ -19,5 +16,20 @@
     text-align: center;
     width: 100%;
     font-size: 5rem;
-    height: 85vh;
+    height: 30vh;
+}
+
+.illustration {
+    display: flex;
+    justify-content: center;
+}
+
+.illustration .photo {
+    display: block;
+    width: 100px;
+}
+
+.illustration .oeuvre {
+    display: block;
+    height: 40vh;
 }

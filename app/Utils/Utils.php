@@ -20,6 +20,8 @@ class Utils {
     }
 
     static public function html($nbPar = 3) {
+        if (!isset(Utils::$faker))
+            Utils::$faker = Factory::create('fr_FR');
         $str = "<div>";
         $posList = Utils::$faker->numberBetween(-1, $nbPar);
         for ($i = 0; $i < $nbPar; $i++) {

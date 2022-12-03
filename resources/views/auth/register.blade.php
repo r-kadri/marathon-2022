@@ -15,43 +15,53 @@
 </head>
 
 <body>
+@if ($errors->any())
+    <div class="errors">
+        <h3 class="titre-erreurs">Liste des erreurs</h3>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <div>
-    <form  action="{{route('register')}}" method="post">
+    <form action="{{route('register')}}" method="post">
         @csrf
-        <div >
-            <h1 >Création accès musée</h1>
-            <div >
+        <div>
+            <h1>Création accès musée</h1>
+            <div>
                 Si vous avez déjà un compte, <a href="{{route('login')}}">connectez-vous</a>.
             </div>
         </div>
-        <div >
-            <label  for="name">Nom</label>
-            <input  type="text" name="name" id="name">
+        <div>
+            <label for="name">Nom</label>
+            <input type="text" name="name" id="name">
         </div>
 
         <!-- Email Address -->
-        <div >
-            <label  for="email">Adresse mail</label>
-            <input  type="email" name="email" id="email">
+        <div>
+            <label for="email">Adresse mail</label>
+            <input type="email" name="email" id="email">
         </div>
 
 
         <!-- Password -->
-        <div >
+        <div>
             <label for="pwd">Mot de passe</label>
             <input type="password" name="password" id="pwd">
         </div>
 
         <!-- Confirm Password -->
-        <div >
+        <div>
             <label for="conf_pwd">Confirmation mot de passe</label>
             <input type="password" name="password_confirmation" id="conf_pwd">
         </div>
-        <div >
+        <div>
             <input type="submit" value="Enregistrement">
         </div>
     </form>
-    <div >
+    <div>
         <a href="{{route('accueil')}}">Retour à la page principale</a>
     </div>
 </div>
