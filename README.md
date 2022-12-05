@@ -11,7 +11,7 @@ Pour lancer avec succès une première version de votre site web, il faut exécu
 composer install 
 
 # installation des outils pour la construction du front
-npm install && nom run build
+npm install && npm run build
 
 # liaison avec le SGBD et la base de données utilisée
 cp .env.example .env
