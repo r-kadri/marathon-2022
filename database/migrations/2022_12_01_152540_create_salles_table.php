@@ -19,9 +19,7 @@ return new class extends Migration
             $table->string('theme', 50);
             $table->text('description');
             $table->string('plan_url',150);
-            $table->unsignedBigInteger('exposition_id');
-            $table->foreign('exposition_id')->references('id')->on('expositions')->onDelete('cascade');
-
+            $table->boolean('entree')->default(false);
         });
     }
 

@@ -22,10 +22,9 @@ return new class extends Migration
             $table->dateTime('date_creation');
             $table->unsignedInteger('coord_x')->default(0);
             $table->unsignedInteger('coord_y')->default(0);
+            $table->string('auteur', 100);
             $table->unsignedBigInteger('salle_id');
-            $table->unsignedBigInteger('auteur_id');
             $table->foreign('salle_id')->references('id')->on('salles')->onDelete('cascade');
-            $table->foreign('auteur_id')->references('id')->on('auteurs')->onDelete('cascade');
         });
     }
 

@@ -17,7 +17,6 @@ class OeuvresSeeder extends Seeder {
      */
     public function run() {
         $faker = Factory::create('fr_FR');
-        $auteur_ids = Auteur::all()->pluck('id');
         $salle_ids = Salle::all()->pluck('id');
 
         foreach ($salle_ids as $id) {
@@ -25,7 +24,6 @@ class OeuvresSeeder extends Seeder {
             $oeuvres = Oeuvre::factory($nbOeuvres)->make();
             foreach ($oeuvres as $oeuvre) {
                 $oeuvre->salle_id = $id;
-                $oeuvre->auteur_id = $faker->randomElement($auteur_ids);
                 $oeuvre->save();
             }
         }

@@ -41,11 +41,11 @@ class Salle extends Model
         return $this->belongsToMany(Salle::class, 'parcours', 'salle_courante_id', 'salle_suivante_id');
     }
 
-    public function exposition() {
-        return $this->belongsTo(Exposition::class);
-    }
-
     public function oeuvres() {
         return $this->hasMany(Oeuvre::class);
+    }
+
+    public function premiere() {
+        return $this->entree;
     }
 }

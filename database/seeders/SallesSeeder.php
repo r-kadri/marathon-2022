@@ -14,10 +14,11 @@ class SallesSeeder extends Seeder {
      * @return void
      */
     public function run() {
-        $exposition = Exposition::first();
-        Salle::factory(4)->create([
-                'exposition_id' => $exposition->id,
-            ]
-        );
+        Salle::factory(4)->create();
+        Salle::factory()->create([
+            'nom' => 'Outdoor',
+            'theme' => 'Libre',
+            'description' => '<p>Salle réservée aux visiteurs qui souhaitent faire connaitre de nouveaux artistes...</p>'
+        ]);
     }
 }

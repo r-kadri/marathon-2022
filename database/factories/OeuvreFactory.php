@@ -20,6 +20,7 @@ class OeuvreFactory extends Factory {
             'nom' => $this->faker->words(3, true),
             'media_url' => sprintf("images/oeuvres/oeuvre-%d.jpg",$nb),
             'thumbnail_url' => sprintf("images/thumbnails/thumbnail-%d.jpg",$nb),
+            'auteur' => $this->faker->name(),
             'date_creation' => $this->faker->dateTimeBetween('-3 years', '-6 months'),
             'description' =>Utils::html(),
         ];
