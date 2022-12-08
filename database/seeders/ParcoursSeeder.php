@@ -26,9 +26,12 @@ class ParcoursSeeder extends Seeder {
         for ($i = 1; $i <= 5; $i++)
             $salles[$i] = Salle::find($i);
         $salles[1]->entree = true;
+        $salles[1]-> save();
         $salles[1] -> suivantes()-> attach([2, 3]);
         $salles[2] -> suivantes()-> attach([3, 5]);
         $salles[3] -> suivantes()-> attach([2, 5]);
         $salles[5] -> suivantes()-> attach([4]);
-    }
+        $salles[5] -> editable = true;
+        $salles[5] -> save();
+     }
 }

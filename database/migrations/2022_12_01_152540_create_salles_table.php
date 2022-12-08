@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('plan_url',150);
             $table->boolean('entree')->default(false);
+            $table->boolean('editable')->default(false);
         });
     }
 
