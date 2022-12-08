@@ -9,4 +9,5 @@ if [ ! -d ./node_modules ] ; then
   npm install && npm run build
 fi
 sudo fixRights $LOGNAME
+php artisan view:clear
 echo "#end install"
