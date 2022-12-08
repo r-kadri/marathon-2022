@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('thumbnail_url', 150);
             $table->text('description');
             $table->dateTime('date_creation');
+            $table->string('style') ->default("class=\"monStyle, autreStyle\"");
             $table->unsignedInteger('coord_x')->default(0);
             $table->unsignedInteger('coord_y')->default(0);
             $table->string('auteur', 100);
