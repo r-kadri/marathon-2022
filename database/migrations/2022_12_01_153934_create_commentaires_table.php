@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->text('contenu');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('oeuvre_id');
+            $table->boolean('valide')->default(true);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('oeuvre_id')->references('id')->on('oeuvres')->onDelete('cascade');
             $table->timestamps();

@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('style') ->default("class=\"monStyle, autreStyle\"");
             $table->unsignedInteger('coord_x')->default(0);
             $table->unsignedInteger('coord_y')->default(0);
+            $table->boolean('valide') ->default(true);
             $table->string('auteur', 100);
             $table->unsignedBigInteger('salle_id');
             $table->foreign('salle_id')->references('id')->on('salles')->onDelete('cascade');
