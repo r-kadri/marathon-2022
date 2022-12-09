@@ -1,30 +1,8 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+@extends('layouts.app')
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+@section('content')
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
-
-    <!-- Scripts -->
-    @vite(['resources/scss/app.scss','resources/css/app.css','resources/js/app.js'])
-</head>
-
-<body>
-@if ($errors->any())
-    <div class="errors">
-        <h3 class="titre-erreurs">Liste des erreurs</h3>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+    @include("_errors")
 <div >
     <form action="{{route('login')}}" method="post">
         @csrf
@@ -50,5 +28,4 @@
         <a href="{{route('accueil')}}">Retour à la page principale</a>
     </div>
 </div>
-</body>
-</html>
+@endsection
