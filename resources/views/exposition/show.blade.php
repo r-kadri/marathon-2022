@@ -3,6 +3,7 @@
     <h1>Oeuvre {{ $oeuvre->nom }}</h1>
     <img src="/storage/{{ $oeuvre->media_url }}" alt="" srcset="">
     <div class="likes">
+        <button>Like</button>
         <h2>Likes : {{ count($oeuvre->likes) }}</h2>
     </div>
     <div class="auteurs">
