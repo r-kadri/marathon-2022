@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Commentaire;
 use App\Models\Oeuvre;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -29,8 +30,12 @@ class ExpositionController extends Controller
     /**
      * Afficher le détail d'une oeuvre
      */
-    public function show($id) {
+    public function show($id, Request $request) {
         $oeuvre = Oeuvre::findOrFail($id);
-        return view('exposition.show', ['oeuvre' => $oeuvre]);
+        $comments = $oeuvre->commentaires->sortBy('created_at');
+        if($request['sort'] === 'old') {
+            $comments = $oeuvre->commentaires->sortByDesc('created_at');
+        }
+        return view('exposition.show', ['oeuvre' => $oeuvre, 'comments' => $comments]);
     }
 }
