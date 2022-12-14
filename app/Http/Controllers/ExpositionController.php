@@ -25,4 +25,12 @@ class ExpositionController extends Controller
             'param' => $param,
         ]);
     }
+
+    /**
+     * Afficher le détail d'une oeuvre
+     */
+    public function show($id) {
+        $oeuvre = Oeuvre::findOrFail($id);
+        return view('exposition.show', ['oeuvre' => $oeuvre]);
+    }
 }
