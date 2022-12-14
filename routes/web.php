@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExpositionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +23,5 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('home');
 })->middleware(['auth'])->name('home');
+
+Route::resource('exposition',ExpositionController::class);
