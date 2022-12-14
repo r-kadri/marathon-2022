@@ -39,11 +39,26 @@ class ExpositionController extends Controller
         }
 
         if(Auth::user()) {
-            $userIds = $oeuvre->likes->pluck('id')->get();
-            if(in_array(Auth::id(), $userIds));
-            return view('exposition.show', ['oeuvre' => $oeuvre, 'comments' => $comments, 'liked' => true]);
+            $userIds = $oeuvre->likes->pluck('id')->toArray();
+            if(in_array(Auth::id(), $userIds)) {
+                return view('exposition.show', ['oeuvre' => $oeuvre, 'comments' => $comments, 'liked' => true]);
+            }
         }
 
-        return view('exposition.show', ['oeuvre' => $oeuvre, 'comments' => $comments]);
+        return view('exposition.show', ['oeuvre' => $oeuvre, 'comments' => $comments, 'liked' => false]);
+    }
+
+    /**
+     * Ajouter ou supprimer le like d'un utilisateur
+     */
+    public function addLike(Request $request) {
+        $oeuvre = Oeuvre::findOrFail($request->oeuvre_id);
+
+        if($request->like == 'add') {
+            $oeuvre->likes()->attach(Auth::id());
+        } else {
+            $oeuvre->likes()->detach(Auth::id());
+        }
+        return redirect()->route('exposition.show', ['exposition' => $request->oeuvre_id]);
     }
 }
