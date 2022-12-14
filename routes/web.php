@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\ExpositionController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +26,6 @@ Route::get('/home', function () {
 })->middleware(['auth'])->name('home');
 
 Route::resource('exposition',ExpositionController::class);
+
+// COMMENTAIRES
+Route::post('/commentaire/store', [CommentaireController::class, 'store'])->name('storeComment');
