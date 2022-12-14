@@ -1,0 +1,100 @@
+html{
+    background-color: #141D77;
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-evenly;
+}
+
+.nav-menu ul li a{
+    text-decoration: none;
+    color: white;
+    padding: 5px 20px;
+    text-transform: uppercase;
+    font-family: 'Chau Philomene One', sans-serif;
+}
+
+.nav-menu ul li{
+    
+    display: flex;
+    
+}
+
+.nav-menu ul .bjr{
+    background-color: #2DC8AC;
+    border: solid 2px;
+    border-color: #141D77;
+    box-shadow: -3px -3px 0px 0px #2DC8AC;
+    color: white;
+    padding: 5px 20px;
+    text-transform: uppercase;
+    font-family: 'Chau Philomene One', sans-serif;
+}
+
+.nav-menu ul  .rose{
+    background-color: #FFB580;
+    outline-color:#FFB580;
+    border: solid 2px;
+    border-color: #141D77;
+    box-shadow: -3px -3px 0px 0px #FFB580;
+}
+
+.nav-menu ul  .jaune{
+    background-color: #FFE809;
+    outline-color:#FFE809;
+    border: solid 2px;
+    border-color: #141D77;
+    box-shadow: -3px -3px 0px 0px #FFE809;
+}
+
+.nav-menu ul  .bleu-clair{
+    background-color: #67BDE0;
+    outline-color:#67BDE0;
+    border: solid 2px;
+    border-color: #141D77;
+    box-shadow: -3px -3px 0px 0px #67BDE0;
+}
+
+.nav-menu ul  .bleu-fonce{
+    background-color: #5C74DD;
+    outline-color:#5C74DD;
+    border: solid 2px;
+    border-color: #141D77;
+    box-shadow: -3px -3px 0px 0px #5C74DD;
+}
+.nav-menu ul  .vert{
+    background-color: #2DC8AC;
+    outline-color:#2DC8AC;
+    border: solid 2px;
+    border-color: #141D77;
+    box-shadow: -3px -3px 0px 0px #2DC8AC;
+    
+}
+
+.welcome{
+    margin-top: 100px;
+    text-align: center;
+    border: solid 3px #67BDE0;
+    position: relative;
+}
+
+.welcome img{
+    max-width: 100%;
+    height: 500px;
+}
+
+.welcome h1{
+    font-size: 30px;
+    font-family: 'Chau Philomene One', sans-serif;
+    text-transform: uppercase;
+    color: white;
+    background-color: #141D77;
+    position: absolute;
+    top: -40px;
+    left: 190px;
+    padding-left: 100px;
+    padding-right: 100px ;
+
+}

@@ -4,28 +4,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="<?php echo asset('css/style.css')?>" type="text/css"> 
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chau+Philomene+One&display=swap" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/scss/app.scss','resources/css/app.css','resources/js/app.js'])
 </head>
 <body>
 <div class="container">
-    <nav>
-        <ul>
+    <nav class="nav-menu">
+        <ul >
             @guest
-                <li><a href="{{ route('login') }}">Login</a></li>
-                <li><a href="{{ route('register') }}">Register</a></li>
+                <li class="rose"><a href="#">Les salles</a></li>
+                <li class="jaune"><a href="#">Les Oeuvres</a></li>
+                <li class="bleu-clair"><a href="#">à propos</a></li>
+                <li class="bleu-fonce"><a href="{{route ('login')}}">Se connecter</a></li>
             @else
                 <li> Bonjour {{ Auth::user()->name }}</li> @if (Auth::user())
-
-                    <li><a href="#">Des liens spécifiques pour utilisateurs connectés..</a></li>
+                    <li class="rose"><a href="#">Les salles</a></li>
+                    <li class="jaune"><a href="#">Les Oeuvres</a></li>
+                    <li class="bleu-clair"><a href="#">à propos</a></li>
+                    <li class="bleu-fonce"><a href="#">Mon profil</a></li>
+                    
                 @endif
-                <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.
+                <li class="vert"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.
           getElementById('logout-form').submit();">
                         Logout
                     </a></li>
@@ -34,10 +42,11 @@
                 </form>
             @endguest  </ul>
     </nav>
-    <div class="illustration">
-        <img class="oeuvre" src="{{asset('storage/images/oeuvres/oeuvre-5.png')}}" alt="">
+   
+    <div class="welcome">
+       <h1>Voyagez à travers des carrés</h1> 
+       <img src="/images/Map.png" alt="">
     </div>
-    <div class="welcome">Bienvenue au musée virtuel !</div>
 </div>
 </body>
 </html>
