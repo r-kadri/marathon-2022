@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Auth;
 
 class ExpositionController extends Controller
 {
@@ -37,5 +38,18 @@ class ExpositionController extends Controller
             $comments = $oeuvre->commentaires->sortByDesc('created_at');
         }
         return view('exposition.show', ['oeuvre' => $oeuvre, 'comments' => $comments]);
+    }
+
+    public function create(){
+
+        //$oeuvre = Oeuvre::all();
+
+        if(Auth::user()){
+            return view('oeuvre.create');
+
+        }
+        return redirect()->route('oeuvre.index');
+
+
     }
 }
