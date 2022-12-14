@@ -2,7 +2,14 @@
 @section('content')
     <h1>User profil de {{$user->name}}</h1>
     <div class="userinfo">
-        <img src="/storage/{{ $user->avatar }}" alt="" srcset="">
+        <img width="200px" src="/storage/{{ $user->avatar }}" alt="" srcset="">
+        <form action="{{ route('uploadAvatar') }}" method="post" enctype="multipart/form-data">
+            @csrf
+            <label for="avatar">Modifier l'avatar</label><br>
+            <input type="file" name="avatar" id="avatar">
+            <button type="submit">Valider</button>
+        </form><br>
+
         <ul>
             <li>Email : {{ $user->email }}</li>
         </ul>

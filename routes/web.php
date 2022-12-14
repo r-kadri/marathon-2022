@@ -30,6 +30,7 @@ Route::resource('exposition',ExpositionController::class);
 
 // USER PROFIL //
 Route::get('user-profil', [UserController::class, 'profil'])->name('profil')->middleware('auth');
+Route::post('upload-avatar', [UserController::class, 'upload'])->name('uploadAvatar');
 
 
 // COMMENTAIRES //
