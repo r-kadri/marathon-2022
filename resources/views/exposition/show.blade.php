@@ -62,7 +62,7 @@
         </form>
         <ul>
             @foreach ($comments as $comment)
-                @if ($comment->valide == 1)
+                @if ($comment->valide)
                     <li>
                         <h4>  {{ $comment->titre }} (par {{ $comment->user->name }}, à {{ $comment->created_at->format('D-M-Y h:m') }})</h4>
                         {{ $comment->contenu }}

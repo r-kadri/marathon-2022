@@ -15,7 +15,8 @@ class CommentaireController extends Controller
             'titre' => $request['titre'],
             'contenu' => $request['contenu'],
             'user_id' => Auth::id(),
-            'oeuvre_id' => $exposition->id
+            'oeuvre_id' => $exposition->id,
+            'valide' => false // NE MARCHE PAS : IL CREER UN COMMENTAIRE AVEC TRUE
         ]);
         return redirect()->route('exposition.show', ['exposition' => $exposition]);
     }
