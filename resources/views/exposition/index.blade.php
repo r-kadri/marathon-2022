@@ -9,7 +9,7 @@
         <h4><a href="{{ route('exposition.create') }}">Nouvel oeuvre</a></h4>
     @endcan
 
-    <form action="{{route('exposition.index')}}" method="get">
+    <form action="{{route('exposition.index',["n_salle"=>$salle])}}" method="get">
         <select name="auteur">
             <option value=""  selected >-- Tous nom d'auteur --</option>
             @foreach($auteurs as $auteur)
@@ -18,7 +18,7 @@
         </select>
         <input type="submit" value="Recherche">
     </form>
-    <form action="{{route('exposition.index')}}" method="get">
+    <form action="{{route('exposition.index',["n_salle"=>$salle])}}" method="get">
         <select name="tag">
             <option value=""  selected >-- Tous tag --</option>
             @foreach($tags as $tag)
@@ -27,8 +27,8 @@
         </select>
         <input type="submit" value="Recherche">
     </form>
-    <a href="{{ route('exposition.index',["sale"=>"plus"]) }}">voir les oeuvres les mieux note</a></br>
-    <a href="{{ route('exposition.index',["action"=>"top"]) }}">voir les oeuvres les plus recentes</a>
+    <a href="{{ route('exposition.index',["deplacement"=>'true',"n_salle"=>$salle])}}">ce deplacer dans la salle de droite</a></br>
+    <strong>salle n°</strong>{{$salle}}
     @if(!empty($oeuvres))
         <ul>
             @foreach($oeuvres as $oeuvre)
