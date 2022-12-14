@@ -11,13 +11,15 @@ class CommentaireController extends Controller
 {
     public function store(Request $request) {
         $exposition = Oeuvre::findOrFail($request['oeuvre_id']);
-        Commentaire::create([
+        $commentaire = Commentaire::create([
             'titre' => $request['titre'],
             'contenu' => $request['contenu'],
             'user_id' => Auth::id(),
             'oeuvre_id' => $exposition->id,
             'valide' => false // NE MARCHE PAS : IL CREER UN COMMENTAIRE AVEC TRUE
         ]);
+        $commentaire->valide = false;
+        $commentaire->save();
         return redirect()->route('exposition.show', ['exposition' => $exposition]);
     }
 }
