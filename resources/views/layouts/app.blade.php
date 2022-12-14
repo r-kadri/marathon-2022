@@ -50,6 +50,8 @@
 
     @yield('content')
 
+   
+
 </body>
 
 </html>

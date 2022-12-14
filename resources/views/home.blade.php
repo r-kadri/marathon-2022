@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="welcome">Vous êtes connecté au musée virtuel !</div>
+    <div class="home"><h1>Vous êtes connecté au musée virtuel !</h1></div>
 @endsection

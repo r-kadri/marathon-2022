@@ -47,6 +47,12 @@
        <h1>Voyagez à travers des carrés</h1> 
        <img src="/images/Map.png" alt="">
     </div>
+    <footer>
+        <img src="/images/Logo_AP.png" alt=""> <br>
+        <a href="">crédits</a>
+        <a href="">Mentions légales et politique de confidentialité</a>
+        <a href="">Plan du site</a>
+    </footer>
 </div>
 </body>
 </html>
