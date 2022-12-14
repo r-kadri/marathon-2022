@@ -13,12 +13,21 @@
         <select name="auteur">
             <option value=""  selected >-- Tous nom d'auteur --</option>
             @foreach($auteurs as $auteur)
-                <option value="{{$auteur}}" @if($param == $auteur) selected @endif>{{$auteur}}</option>
+                <option value="{{$auteur}}" @if($param_auteur == $auteur) selected @endif>{{$auteur}}</option>
             @endforeach
         </select>
         <input type="submit" value="Recherche">
     </form>
-    <a href="{{ route('exposition.index',["action"=>"note"]) }}">voir les oeuvres les mieux note</a></br>
+    <form action="{{route('exposition.index')}}" method="get">
+        <select name="tag">
+            <option value=""  selected >-- Tous tag --</option>
+            @foreach($tags as $tag)
+                <option value="{{$tag->id}}" @if($param_tag == $tag) selected @endif>{{$tag->intitule}}</option>
+            @endforeach
+        </select>
+        <input type="submit" value="Recherche">
+    </form>
+    <a href="{{ route('exposition.index',["sale"=>"plus"]) }}">voir les oeuvres les mieux note</a></br>
     <a href="{{ route('exposition.index',["action"=>"top"]) }}">voir les oeuvres les plus recentes</a>
     @if(!empty($oeuvres))
         <ul>
