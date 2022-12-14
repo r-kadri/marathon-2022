@@ -19,6 +19,7 @@
     </form>
     <a href="{{ route('exposition.index',["action"=>"note"]) }}">voir les oeuvres les mieux note</a></br>
     <a href="{{ route('exposition.index',["action"=>"top"]) }}">voir les oeuvres les plus recentes</a>
+    <a href="{{ route('exposition.index',["salle"=>$salle]) }}"></a></br>
     @if(!empty($oeuvres))
         <ul>
             @foreach($oeuvres as $oeuvre)

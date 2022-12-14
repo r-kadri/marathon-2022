@@ -17,6 +17,7 @@ class ExpositionController extends Controller
         $oeuvres = Oeuvre::all();
         $auteurs = $oeuvres->pluck('auteur');
         $param = $request->input('auteur',null);
+        $salle = $request->input('salle', null);
         if($param !== null){
             //$oeuvres = $oeuvres->auteur;
             //dd($oeuvres);
@@ -25,6 +26,7 @@ class ExpositionController extends Controller
             'oeuvres'=> $oeuvres,
             'auteurs' => $auteurs,
             'param' => $param,
+            'salle'=>$salle,
         ]);
     }
 
@@ -53,6 +55,8 @@ class ExpositionController extends Controller
     }
 
     public function store(Request $request){
+
+        $rep = $request->input('salle',null);
         $this->validate(
             $request, [
                 'nom'=>'required',
