@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Auth;
 
 class ExpositionController extends Controller
 {
@@ -36,6 +37,13 @@ class ExpositionController extends Controller
         if($request['sort'] === 'old') {
             $comments = $oeuvre->commentaires->sortByDesc('created_at');
         }
+
+        if(Auth::user()) {
+            $userIds = $oeuvre->likes->pluck('id')->get();
+            if(in_array(Auth::id(), $userIds));
+            return view('exposition.show', ['oeuvre' => $oeuvre, 'comments' => $comments, 'liked' => true]);
+        }
+
         return view('exposition.show', ['oeuvre' => $oeuvre, 'comments' => $comments]);
     }
 }

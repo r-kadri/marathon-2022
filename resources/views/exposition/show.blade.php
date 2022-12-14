@@ -3,8 +3,14 @@
     <h1>Oeuvre {{ $oeuvre->nom }}</h1>
     <img src="/storage/{{ $oeuvre->media_url }}" alt="" srcset="">
     <div class="likes">
-        <button>Like</button>
         <h2>Likes : {{ count($oeuvre->likes) }}</h2>
+        @auth
+            @if (liked)
+                <button>Enlever le like</button>
+            @else
+                <button>Ajouter un like</button>
+            @endif
+        @endauth
     </div>
     <div class="auteurs">
         <p>Auteur : {{ $oeuvre->auteur }}</p>        
