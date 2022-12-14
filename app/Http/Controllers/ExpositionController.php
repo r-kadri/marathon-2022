@@ -45,7 +45,7 @@ class ExpositionController extends Controller
         }
         $liste_oeuvres = [];
         foreach ($oeuvres as $oeuvre) {
-            if(strval($oeuvre->salle->id) === $salle_n){
+            if($oeuvre->salle->id == $salle_n){
                 $liste_oeuvres[]=$oeuvre;
             }
         }
