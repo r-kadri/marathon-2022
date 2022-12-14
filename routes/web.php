@@ -27,8 +27,11 @@ Route::get('/home', function () {
 
 Route::resource('exposition',ExpositionController::class);
 
-// COMMENTAIRES
+// COMMENTAIRES //
 Route::post('/commentaire/store', [CommentaireController::class, 'store'])->name('storeComment');
+// VALIDER OU NON
+Route::post('/commentaire/valide', [CommentaireController::class, 'validComment'])->name('validComment');
+
 
 // LIKE OEUVRE
 Route::post('/exposition-like', [ExpositionController::class, 'addLike'])->name('addLike');
