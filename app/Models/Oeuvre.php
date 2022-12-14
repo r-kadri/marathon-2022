@@ -49,6 +49,7 @@ class Oeuvre extends Model {
 
     public function tags() {
         return $this->belongsToMany(Tag::class, 'oeuvre_tag');
+
     }
     public function likes() {
         return $this->belongsToMany(User::class, 'likes');
