@@ -13,6 +13,8 @@
                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     Logout
                 </a>
+                <li style="list-style: none"><br></li>
+                <li><a href="{{ route('profil') }}">Mon profil</a></li>
             </li>
             <form id="logout-form" action="{{ route('logout') }}"
                     method="POST" style="display: none;"> {{ csrf_field() }}
