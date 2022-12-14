@@ -50,6 +50,32 @@ class ExpositionController extends Controller
         }
         return redirect()->route('oeuvre.index');
 
+    }
 
+    public function store(Request $request){
+        $this->validate(
+            $request, [
+                'nom'=>'required',
+                'media_url'=>'required',
+                'thumbnail_url'=>'required',
+                'auteur'=>'required',
+                'date_creation'=>'required',
+                'description'=>'required'
+
+            ]
+        );
+
+        $oeuvre = new Oeuvre();
+
+        $oeuvre->nom=$request->nom;
+        $oeuvre->media_url=$request->media_url;
+        $oeuvre->thumbnail_url=$request->thumnnail_url;
+        $oeuvre->author=$request->author;
+        $oeuvre->date_creation=$request->date_creation;
+        $oeuvre->description=$request->description;
+
+        $oeuvre->save();
+
+        return redirect()->route('exposition.index');
     }
 }

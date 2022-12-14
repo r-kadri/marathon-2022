@@ -5,9 +5,9 @@
 
 @section('main')
 
-    @can('create', \App\Models\Oeuvre::class )
-        <h4><a href="{{ route('exposition.create') }}">Nouvel oeuvre</a></h4>
-    @endcan
+    @if (Auth::user())
+        <h4><a href="{{ route('exposition.create') }}">Nouvelle oeuvre</a></h4>
+    @endif
 
     <form action="{{route('exposition.index')}}" method="get">
         <select name="auteur">
