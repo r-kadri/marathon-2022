@@ -4,6 +4,27 @@
     <img src="/storage/{{ $oeuvre->media_url }}" alt="" srcset="">
     <div class="likes">
         <h2>Likes : {{ count($oeuvre->likes) }}</h2>
+
+        <!-- LIKER OU PAS UNE OEUVRE -->
+        @auth
+            @if ($liked)
+                <form action="{{ route('addLike') }}" method="post">
+                    @csrf
+                    <input name="oeuvre_id" type="hidden" value="{{$oeuvre->id}}">
+                    <input name="like" type="hidden" value="remove">
+                    <button type="submit">Retirer le like</button>
+                </form>
+            @else
+                <form action="{{ route('addLike') }}" method="post">
+                    @csrf
+                    <input name="like" type="hidden" value="add">
+                    <input name="oeuvre_id" type="hidden" value="{{$oeuvre->id}}">
+                    <button type="submit">Liker l'oeuvre</button>
+                </form>
+            @endif
+        @endauth
+
+
     </div>
     <div class="auteurs">
         <p>Auteur : {{ $oeuvre->auteur }}</p>        
@@ -18,8 +39,8 @@
     </div>
 
     <div class="comments">
-        <h3>Ajouter un commentaire</h3>
         @auth
+            <h3>Ajouter un commentaire</h3>
             <form action="{{ route('storeComment') }}" method="post">
                 @csrf
                 <input type="hidden" name="oeuvre_id" value="{{$oeuvre->id}}">
