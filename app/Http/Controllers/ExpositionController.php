@@ -20,13 +20,13 @@ class ExpositionController extends Controller
         $param_auteur = $request->input('auteur',null);
         $param_tag = $request->input('tag',null);
         $deplacement = $request->input('deplacement',null);
-        $salle = $request->input('n_salle',1);
+        $salle_n = $request->input('n_salle',1);
         if($param_auteur !== null) {
             $liste_oeuvres = [];
             foreach ($oeuvres as $oeuvre) {
                 if ($oeuvre->auteur === $param_auteur) {
                     $liste_oeuvres = [$oeuvre];
-                    $salle = $oeuvre->salle->id;
+                    $salle_n = $oeuvre->salle->id;
                 }
             }
             $oeuvres=$liste_oeuvres;
@@ -43,28 +43,26 @@ class ExpositionController extends Controller
             }
             $oeuvres = $liste_tags;
         }
-        if($deplacement !== null) {
-            $salle += 1;
-            $salle = ($salle % 6);
-            if ($salle === 0) {
-                $salle = 1;
-            }
-        }
         $liste_oeuvres = [];
         foreach ($oeuvres as $oeuvre) {
-            if($oeuvre->salle->id===$salle){
+            if(strval($oeuvre->salle->id) === $salle_n){
                 $liste_oeuvres[]=$oeuvre;
             }
         }
         $oeuvres=$liste_oeuvres;
         $auteurs = [];
-        $salle_tmp = Salle::find($salle);
-        foreach ($salle_tmp->oeuvres as $oeuvre){
+        $salle = Salle::find($salle_n);
+        foreach ($salle->oeuvres as $oeuvre){
             $auteurs[]=$oeuvre->auteur;
         }
-
+        $salle_adjacentes = $salle->suivantes;
+        $liste_salle_adjacentes =[];
+        for($i=0;$i<count($salle_adjacentes);$i++){
+            $liste_salle_adjacentes[]=$salle_adjacentes[$i]->id;
+        }
         return view('exposition.index', [
-            'salle'=> $salle,
+            'salle'=> $salle_n,
+            'liste_salle_adjacentes'=>$liste_salle_adjacentes,
             'oeuvres'=> $oeuvres,
             'auteurs' => $auteurs,
             'param_auteur' => $param_auteur,
