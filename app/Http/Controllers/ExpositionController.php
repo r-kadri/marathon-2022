@@ -44,11 +44,11 @@ class ExpositionController extends Controller
 
         //$oeuvre = Oeuvre::all();
 
-        if(Auth::user()){
-            return view('oeuvre.create');
+        //if(Auth::user()){
+            return view('exposition.create');
 
-        }
-        return redirect()->route('oeuvre.index');
+        //}
+        //return redirect()->route('oeuvre.index');
 
     }
 
@@ -69,8 +69,8 @@ class ExpositionController extends Controller
 
         $oeuvre->nom=$request->nom;
         $oeuvre->media_url=$request->media_url;
-        $oeuvre->thumbnail_url=$request->thumnnail_url;
-        $oeuvre->author=$request->author;
+        $oeuvre->thumbnail_url=$request->thumbnail_url;
+        $oeuvre->auteur=$request->auteur;
         $oeuvre->date_creation=$request->date_creation;
         $oeuvre->description=$request->description;
 

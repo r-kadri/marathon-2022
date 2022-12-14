@@ -1,3 +1,14 @@
+@if ($errors->any())
+    <div>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+
 <form action="{{route('exposition.store')}}" method="POST" enctype="multipart/form-data">
     {!! csrf_field() !!}
     <div class="text-center" style="margin-top: 2rem">
@@ -25,15 +36,15 @@
 
     <div>
         {{-- Auteur --}}
-        <label for="author"><strong>Auteur : </strong></label>
-        <input type="text" class="form-control" id="author" name="author">
+        <label for="auteur"><strong>Auteur : </strong></label>
+        <input type="text" class="form-control" id="auteur" name="auteur">
 
     </div>
 
     <div>
         {{-- Date de création --}}
-        <label for="date_de_creation"><strong>Date De Création : </strong></label>
-        <input type="date" class="form-control" id="date_de_creation" name="date_de_creation">
+        <label for="date_creation"><strong>Date De Création : </strong></label>
+        <input type="date" class="form-control" id="date_creation" name="date_creation">
 
     </div>
 

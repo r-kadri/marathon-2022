@@ -5,10 +5,9 @@
 
 @section('main')
 
-    @if (Auth::user())
+    @guest
         <h4><a href="{{ route('exposition.create') }}">Nouvelle oeuvre</a></h4>
-    @endif
-
+    @endguest
     <form action="{{route('exposition.index')}}" method="get">
         <select name="auteur">
             <option value=""  selected >-- Tous nom d'auteur --</option>
