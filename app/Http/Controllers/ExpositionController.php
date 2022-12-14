@@ -17,14 +17,6 @@ class ExpositionController extends Controller
 {
     public function index(Request $request){
         $oeuvres = Oeuvre::all();
-<<<<<<< HEAD
-        $auteurs = $oeuvres->pluck('auteur');
-        $param = $request->input('auteur',null);
-        $salle = $request->input('salle', null);
-        if($param !== null){
-            //$oeuvres = $oeuvres->auteur;
-            //dd($oeuvres);
-=======
         $tags = Tag::all();
         $param_auteur = $request->input('auteur',null);
         $param_tag = $request->input('tag',null);
@@ -39,7 +31,6 @@ class ExpositionController extends Controller
                 }
             }
             $oeuvres=$liste_oeuvres;
->>>>>>> fd5881bafaad01dbdce562ca462f366795073f61
         }
         if($param_tag !== null){
             $oeuvres=Oeuvre::all();
