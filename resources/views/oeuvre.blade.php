@@ -1,4 +1,4 @@
-    @extends('layouts.app')
+@extends('layouts.app')
 
 @section('content')
 <div class="page-oeuvre">
@@ -19,156 +19,16 @@
                 <p>présentation</p>
                 <button class="plus" data-popup-ref="monPopup9">Voir +</button>
             </div>
-
+            
             <div class="popup" data-popup-id="monPopup9">
                 <div class="popup-content">
                     <div class="popup-body">
                         <div class="contenue">
                             <img src="{{ asset('storage/' . $oeuvre->media_url) }}" alt="">
                             <div class="texte">
-
+                                
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti eligendi facere deserunt laudantium suscipit non illum voluptas! Blanditiis cum dolorem perferendis laudantium fugiat error ipsam sequi incidunt doloremque ullam. Fugiat!
-                                </p>
-                            </div>
-                        </div>
-                        <div class="btn">
-                            <button class="btn-close" style="color:white ;" data-dismiss-popup>Fermer</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="oeuvre">
-    <div class="card">
-            <img class="display" src="/images/d74774ce15db8411c5dd0e30155a02f4.jpg" />
-            <div class="description">
-                <h2>Titre</h2>
-                <p>présentation</p>
-                <button class="plus" data-popup-ref="monPopup9">Voir +</button>
-            </div>
-
-            <div class="popup" data-popup-id="monPopup9">
-                <div class="popup-content">
-                    <div class="popup-body">
-                        <div class="contenue">
-                            <div class="texte">
-                                <h1>Guide d'entretien des usages</h1>
-                                <p>
-                                    Ce projet à été réalisé dans le cadre universitaire. Nous devions choisir une ville et réaliser un guide d'entretien des usages.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="btn">
-                            <button class="btn-close" style="color:white ;" data-dismiss-popup>Fermer</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="oeuvre">
-    <div class="card">
-            <img class="display" src="/images/d74774ce15db8411c5dd0e30155a02f4.jpg" />
-            <div class="description">
-                <h2>Titre</h2>
-                <p>présentation</p>
-                <button class="plus" data-popup-ref="monPopup9">Voir +</button>
-            </div>
-
-            <div class="popup" data-popup-id="monPopup9">
-                <div class="popup-content">
-                    <div class="popup-body">
-                        <div class="contenue">
-                            <div class="texte">
-                                <h1>Guide d'entretien des usages</h1>
-                                <p>
-                                    Ce projet à été réalisé dans le cadre universitaire. Nous devions choisir une ville et réaliser un guide d'entretien des usages.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="btn">
-                            <button class="btn-close" style="color:white ;" data-dismiss-popup>Fermer</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="oeuvre">
-    <div class="card">
-            <img class="display" src="/images/d74774ce15db8411c5dd0e30155a02f4.jpg" />
-            <div class="description">
-                <h2>Titre</h2>
-                <p>présentation</p>
-                <button class="plus" data-popup-ref="monPopup9">Voir +</button>
-            </div>
-
-            <div class="popup" data-popup-id="monPopup9">
-                <div class="popup-content">
-                    <div class="popup-body">
-                        <div class="contenue">
-                            <div class="texte">
-                                <h1>Guide d'entretien des usages</h1>
-                                <p>
-                                    Ce projet à été réalisé dans le cadre universitaire. Nous devions choisir une ville et réaliser un guide d'entretien des usages.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="btn">
-                            <button class="btn-close" style="color:white ;" data-dismiss-popup>Fermer</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="oeuvre">
-    <div class="card">
-            <img class="display" src="/images/d74774ce15db8411c5dd0e30155a02f4.jpg" />
-            <div class="description">
-                <h2>Titre</h2>
-                <p>présentation</p>
-                <button class="plus" data-popup-ref="monPopup9">Voir +</button>
-            </div>
-
-            <div class="popup" data-popup-id="monPopup9">
-                <div class="popup-content">
-                    <div class="popup-body">
-                        <div class="contenue">
-                            <div class="texte">
-                                <h1>Guide d'entretien des usages</h1>
-                                <p>
-                                    Ce projet à été réalisé dans le cadre universitaire. Nous devions choisir une ville et réaliser un guide d'entretien des usages.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="btn">
-                            <button class="btn-close" style="color:white ;" data-dismiss-popup>Fermer</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="oeuvre">
-        <div class="card">
-            <img class="display" src="/images/d74774ce15db8411c5dd0e30155a02f4.jpg" />
-            <div class="description">
-                <h2>Titre</h2>
-                <p>présentation</p>
-                <button class="plus" data-popup-ref="monPopup9">Voir +</button>
-            </div>
-
-            <div class="popup" data-popup-id="monPopup9">
-                <div class="popup-content">
-                    <div class="popup-body">
-                        <div class="contenue">
-                            <div class="texte">
-                                <h1>Guide d'entretien des usages</h1>
-                                <p>
-                                    Ce projet à été réalisé dans le cadre universitaire. Nous devions choisir une ville et réaliser un guide d'entretien des usages.
+                                    {{ strip_tags($oeuvre->description)}}
                                 </p>
                             </div>
                         </div>
@@ -251,8 +111,4 @@
         slide.classList.remove("active")
     }
 </script>
-
-
-
-
 @endsection
