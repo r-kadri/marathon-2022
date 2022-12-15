@@ -18,6 +18,7 @@
                 <h2>{{$oeuvre->nom}}</h2>
                 <p>présentation</p>
                 <button class="plus" data-popup-ref="monPopup9">Voir +</button>
+                <a href="{{ route('exposition.show', ['exposition' => $oeuvre]) }}">Voir l'oeuvre</a>
             </div>
             
             <div class="popup" data-popup-id="monPopup9">
@@ -26,7 +27,6 @@
                         <div class="contenue">
                             <img src="{{ asset('storage/' . $oeuvre->media_url) }}" alt="">
                             <div class="texte">
-                                
                                 <p>
                                     {{ strip_tags($oeuvre->description)}}
                                 </p>
