@@ -60,6 +60,9 @@ j'ai rencontrer pluiseurs problèmes dans la creation de l'index surtout lors de
 donnné de la base de donné pour les integre nous avon spourtant comencer a faire l'integration assé tot dans le projet .
 deplus j'ai aussi passé pas mal de temp sur le filtre pour les tags  en effet celui si etait particulièrement compicé a trouver 
 les bonnes oeuvre qui sont concerné dans la BD.
+parlon maintenant de tout ce qui concerne la cohesion d'equipe avec la rencontre avec les mmi qui c'est bien passé puis nous avons
+commencer a parler en quoi le projet concistera et quel sera le contenue de notre exposition,nous avons donc utiliser git avec 
+simplicite affin d'evoluer sur notre projet tous ensemble. 
 
 ## Partie de Ryan KADRI  
 
