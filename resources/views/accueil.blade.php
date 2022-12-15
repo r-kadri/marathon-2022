@@ -30,36 +30,7 @@
     <div class="container">
         <nav class="nav-menu">
             <ul>
-                <li><a href="{{route('accueil')}}"><img src="/images/Logo2.png" alt=""></a></li>
-                @guest
-                <li class="rose"><a href="{{route('salle')}}">Les salles</a></li>
-                <li class="jaune"><a href="{{route('oeuvre')}}">Les Oeuvres</a></li>
-                <li class="bleu-clair"><a href="{{route('apropos')}}">à propos</a></li>
-                <li class="bleu-fonce"><a href="{{route ('login')}}">Se connecter</a></li>
-                @else
-                <li class="bjr"> Bonjour {{ Auth::user()->name }}</li> @if (Auth::user())
-                <li class="rose"><a href="{{route('salle')}}">Les salles</a></li>
-                <li class="jaune"><a href="{{route('oeuvre')}}">Les Oeuvres</a></li>
-                <li class="bleu-clair"><a href="{{route('apropos')}}">à propos</a></li>
-                <li class="bleu-fonce"><a href="{{route('monprofil')}}">Mon profil</a></li>
-                @endif
-                <li class="vert"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.
-          getElementById('logout-form').submit();">
-                        Logout
-                    </a></li>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> {{ csrf_field() }}
-                </form>
-                @endguest
-            </ul>
-        </nav>
-        <div class="hamburger-menu">
-            <input id="menu__toggle" type="checkbox" />
-            <label class="menu__btn" for="menu__toggle">
-                <span></span>
-            </label>
-
-            <ul class="menu__box">
-                <li><a href="{{route ('accueil')}}">Accueil</a></li>
+                <li><a href="{{route('accueil')}}"><img src="{{ asset('images/Logo2.png') }}" alt=""></a></li>
                 @guest
                 <li class="rose"><a href="{{route('salle')}}">Les salles</a></li>
                 <li class="jaune"><a href="{{route('oeuvre')}}">Les Oeuvres</a></li>
@@ -80,6 +51,35 @@
                 </form>
                 @endguest
             </ul>
+        </nav>
+        <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+                <span></span>
+            </label>
+
+    <ul class="menu__box">
+            <li><a href="{{route ('accueil')}}">Accueil</a></li>
+            @guest
+            <li class="rose"><a href="{{route('salle')}}">Les salles</a></li>
+            <li class="jaune"><a href="{{route('oeuvre')}}">Les Oeuvres</a></li>
+            <li class="bleu-clair"><a href="{{route('apropos')}}">à propos</a></li>
+            <li class="bleu-fonce"><a href="{{route ('login')}}">Se connecter</a></li>
+            @else
+            <li class="bjr"> Bonjour {{ Auth::user()->name }}</li> @if (Auth::user())
+            <li class="rose"><a href="{{route('salle')}}">Les salles</a></li>
+            <li class="jaune"><a href="{{route('oeuvre')}}">Les Oeuvres</a></li>
+            <li class="bleu-clair"><a href="{{route('apropos')}}">à propos</a></li>
+            <li class="bleu-fonce"><a href="{{route('profil')}}">Mon profil</a></li>
+            @endif
+            <li class="vert"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.
+          getElementById('logout-form').submit();">
+                        Logout
+                    </a></li>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> {{ csrf_field() }}
+                </form>
+                @endguest
+            </ul>
         </div>
 
 
@@ -87,10 +87,10 @@
 
         <div class="welcome">
             <h1>Voyagez à travers des carrés</h1>
-            <img src="/images/Map.png" alt="">
+            <img src="{{ asset('images/Map.png') }}" alt="">
         </div>
         <footer>
-            <img src="/images/Logo_AP.png" alt=""> <br>
+            <img src="{{ asset('images/Logo_AP.png') }}" alt=""> <br>
             <a href="">crédits</a>
             <a href="">Mentions légales et politique de confidentialité</a>
             <a href="">Plan du site</a>

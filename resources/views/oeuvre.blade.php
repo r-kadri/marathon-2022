@@ -12,7 +12,7 @@
 <div class="oeuvre-content">
     <div class="oeuvre">
     <div class="card">
-            <img class="display" src="/images/d74774ce15db8411c5dd0e30155a02f4.jpg" />
+            <img class="display" src="{{ asset('images/d74774ce15db8411c5dd0e30155a02f4.jpg') }}" />
             <div class="description">
                 <h2>Titre</h2>
                 <p>présentation</p>
@@ -23,7 +23,7 @@
                 <div class="popup-content">
                     <div class="popup-body">
                         <div class="contenue">
-                            <img src="/images/d74774ce15db8411c5dd0e30155a02f4.jpg" alt="">
+                            <img src="{{ asset('images/d74774ce15db8411c5dd0e30155a02f4.jpg') }}" alt="">
                             <div class="texte">
                                 
                                 <p>
