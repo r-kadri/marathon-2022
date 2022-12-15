@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <h1>Oeuvre {{ $oeuvre->nom }}</h1>
-    <img src="/storage/{{ $oeuvre->media_url }}" alt="" srcset="">
+    <img src="{{ asset('storage/'. $oeuvre->media_url) }}" alt="" srcset="">
     <div class="likes">
         <h2>Likes : {{ count($oeuvre->likes) }}</h2>
 
@@ -40,7 +40,30 @@
 
     <div class="comments">
         @auth
-            <h3>Ajouter un commentaire</h3>
+            <!-- COMMENTAIRE A VALIDER PAR UN ADMIN -->
+            @if (Auth::user()->admin)
+                <h3>Commentaires en attente de validation</h3>
+                <ul>
+                    @foreach ($comments as $comment)
+                        @if (!$comment->valide)
+                            <li style="border: 1px solid black">
+                                <h4>  {{ $comment->titre }} (par {{ $comment->user->name }}, à {{ $comment->created_at->format('D-M-Y h:m') }})</h4>
+                                {{ strip_tags($comment->contenu) }}
+                            </li>
+                            <form action="{{ route('validComment') }}" method="post">
+                                @csrf
+                                <input type="hidden" name="comment_id" value="{{$comment->id}}">
+                                <input type="hidden" name="oeuvre_id" value="{{$oeuvre->id}}">
+                                <button name="valide" value="yes" type="submit" style="color: red">Valider le commentaire</button>
+                                <button name="valide" value="no" type="submit" style="color: red">Refuser le commentaire</button>
+                            </form>
+                        @endif
+                    @endforeach
+                </ul>
+            @endif
+
+
+            <h3>Ajouter un commentaire (Il sera en attente de validation tant qu'un administrateur ne l'aura pas accepté)</h3>
             <form action="{{ route('storeComment') }}" method="post">
                 @csrf
                 <input type="hidden" name="oeuvre_id" value="{{$oeuvre->id}}">
@@ -62,10 +85,10 @@
         </form>
         <ul>
             @foreach ($comments as $comment)
-                @if ($comment->valide == 1)
+                @if ($comment->valide)
                     <li>
                         <h4>  {{ $comment->titre }} (par {{ $comment->user->name }}, à {{ $comment->created_at->format('D-M-Y h:m') }})</h4>
-                        {{ $comment->contenu }}
+                        {{ strip_tags($comment->contenu) }}
                     </li>
                 @endif
             @endforeach

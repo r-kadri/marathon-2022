@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div>
+<div class="register-form">
     @include("_errors")
     <form action="{{route('register')}}" method="post">
         @csrf
@@ -13,27 +13,23 @@
             </div>
         </div>
         <div>
-            <label for="name">Nom</label>
-            <input type="text" name="name" id="name">
+            <input type="text" name="name" id="name" placeholder="Nom">
         </div>
 
         <!-- Email Address -->
         <div>
-            <label for="email">Adresse mail</label>
-            <input type="email" name="email" id="email">
+            <input type="email" name="email" id="email" placeholder="Email">
         </div>
 
 
         <!-- Password -->
         <div>
-            <label for="pwd">Mot de passe</label>
-            <input type="password" name="password" id="pwd">
+            <input type="password" name="password" id="pwd" placeholder="Mot de passe">
         </div>
 
         <!-- Confirm Password -->
         <div>
-            <label for="conf_pwd">Confirmation mot de passe</label>
-            <input type="password" name="password_confirmation" id="conf_pwd">
+            <input type="password" name="password_confirmation" id="conf_pwd" placeholder="Confirmer Mot de passe">
         </div>
         <div>
             <input type="submit" value="Enregistrement">

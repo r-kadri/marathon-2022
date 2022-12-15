@@ -29,6 +29,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Commentaire whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Commentaire whereUserId($value)
  * @mixin \Eloquent
+ * @property int $valide
+ * @method static \Illuminate\Database\Eloquent\Builder|Commentaire whereValide($value)
  */
 class Commentaire extends Model {
     use HasFactory;
