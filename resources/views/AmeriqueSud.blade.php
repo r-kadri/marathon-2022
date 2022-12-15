@@ -4,6 +4,10 @@
 <h1 class="title-salle">Amérique du Sud</h1>
 
 <div class="trie">
+    <form>
+        <input type="searchbar" value="rechercher">
+        <input type="submit" value="Recherche">
+    </form>
     <form action="{{route('exposition.index',["n_salle"=>$salle])}}" method="get">
         <select name="auteur">
             <option value="" selected>-- Tous nom d'auteur --</option>
