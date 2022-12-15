@@ -23,7 +23,7 @@
     <div class="container">
         <nav class="nav-menu">
             <ul>
-                <li><a href="{{route('accueil')}}"><img src="/images/Logo2.png" alt=""></a></li>
+                <li><a href="{{route('accueil')}}"><img src="{{asset('/storage/images/Logo2.png')}}" alt=""></a></li>
                 @guest
                 <li class="rose"><a href="{{route('salle')}}">Les salles</a></li>
                 <li class="jaune"><a href="{{route('oeuvre')}}">Les Oeuvres</a></li>
@@ -80,7 +80,7 @@
 
         <div class="welcome">
             <h1>Voyagez à travers des carrés</h1>
-            <img src="/images/Map.png" alt="">
+            <img src="{{asset('/storage/images/')}}" alt="">
         </div>
         <footer>
             <img src="/images/Logo_AP.png" alt=""> <br>
