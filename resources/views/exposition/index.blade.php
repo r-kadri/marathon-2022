@@ -4,25 +4,19 @@
 
 
 @section('main')
-
     @can('create', \App\Models\Oeuvre::class )
         <h4><a href="{{ route('exposition.create') }}">Nouvel oeuvre</a></h4>
     @endcan
-
-    <form action="{{route('exposition.index',["n_salle"=>$salle])}}" method="get">
+    <form action="{{route('exposition.index')}}" method="get">
+        <input type="searchbar" id="recherche" name="recherche" >
+        <input type="submit" value="Recherche">
+    </form>
+    <form action="{{route('exposition.index')}}" method="get">
+        <input type="hidden" name="n_salle" value="{{$salle}}" />
         <select name="auteur">
             <option value=""  selected >-- Tous nom d'auteur --</option>
             @foreach($auteurs as $auteur)
                 <option value="{{$auteur}}" @if($param_auteur == $auteur) selected @endif>{{$auteur}}</option>
-            @endforeach
-        </select>
-        <input type="submit" value="Recherche">
-    </form>
-    <form action="{{route('exposition.index',["n_salle"=>$salle])}}" method="get">
-        <select name="tag">
-            <option value=""  selected >-- Tous tag --</option>
-            @foreach($tags as $tag)
-                <option value="{{$tag->id}}" @if($param_tag == $tag) selected @endif>{{$tag->intitule}}</option>
             @endforeach
         </select>
         <input type="submit" value="Recherche">
@@ -53,10 +47,7 @@
                 <strong>description :</strong> {{$oeuvre->description}}</br>
                 <strong>date de creation :</strong> {{ $oeuvre->date_creation }}</br>
                 <strong>auteur :</strong> {{ $oeuvre->auteur }}</br>
-                <strong>tag :</strong>
-                @foreach($oeuvre->tags as $tag)
-                    {{ $tag->intitule }},
-            @endforeach
+                <strong>tag :</strong>{{$oeuvre->tags}}
                 <hr>
             @endforeach
         </ul>

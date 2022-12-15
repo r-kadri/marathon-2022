@@ -20,9 +20,8 @@ class ExpositionController extends Controller
         $oeuvres = Oeuvre::all();
         $tags = Tag::all();
         $param_auteur = $request->input('auteur', null);
-        $param_tag = $request->input('tag', null);
-        $deplacement = $request->input('deplacement', null);
         $salle_n = $request->input('n_salle', 1);
+        $recherche = $request->input('recherche',null);
         if ($param_auteur !== null) {
             $liste_oeuvres = [];
             foreach ($oeuvres as $oeuvre) {
@@ -32,17 +31,6 @@ class ExpositionController extends Controller
                 }
             }
             $oeuvres = $liste_oeuvres;
-        }
-        if ($param_tag !== null) {
-            $liste_tags = [];
-            foreach ($oeuvres as $oeuvre) {
-                foreach ($oeuvre->tags as $tag) {
-                    if (strval($tag->id) === $param_tag) {
-                        $liste_tags[] = $oeuvre;
-                    }
-                }
-            }
-            $oeuvres = $liste_tags;
         }
         $liste_oeuvres = [];
         foreach ($oeuvres as $oeuvre) {
@@ -82,13 +70,31 @@ class ExpositionController extends Controller
         for($i=0;$i<count($salle_adjacentes);$i++){
             $liste_salle_adjacentes[]=$salle_adjacentes[$i]->id;
         }
+        if($recherche !== null){
+            $oeuvres = Oeuvre::all();
+            $liste_oeuvres = [];
+            foreach ($oeuvres as$oeuvre){
+                foreach($oeuvre->tags as $tag){
+                    if($tag->intitule == $recherche){
+                        $liste_oeuvres[]=$oeuvre;
+                    }
+                }
+            }
+            if(count($liste_oeuvres)==0){
+                foreach ($oeuvres as $oeuvre){
+                        if($oeuvre->nom == $recherche){
+                            $liste_oeuvres[]=$oeuvre;
+                        }
+                    }
+                }
+            $oeuvres = $liste_oeuvres;
+        }
         return view('exposition.index', [
             'salle'=> $salle_n,
             'liste_salle_adjacentes'=>$liste_salle_adjacentes,
             'oeuvres'=> $oeuvres,
             'auteurs' => $auteurs,
             'param_auteur' => $param_auteur,
-            'param_tag' => $param_tag,
             'tags'=> $tags,
         ]);
     }
