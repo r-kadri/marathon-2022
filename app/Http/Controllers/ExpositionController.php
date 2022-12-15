@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Auth;
 class ExpositionController extends Controller
 {
     public function index(Request $request){
-        $oeuvres = Oeuvre::all();
+
+        $oeuvres = Oeuvre::all('americ');
         $tags = Tag::all();
         $param_auteur = $request->input('auteur',null);
         $param_tag = $request->input('tag',null);
@@ -46,7 +47,8 @@ class ExpositionController extends Controller
         }
         $liste_oeuvres = [];
         foreach ($oeuvres as $oeuvre) {
-            if($oeuvre->salle->id == $salle_n){
+            
+            if($oeuvre->salle == $salle_n){
                 $liste_oeuvres[]=$oeuvre;
             }
         }
@@ -61,7 +63,7 @@ class ExpositionController extends Controller
         for($i=0;$i<count($salle_adjacentes);$i++){
             $liste_salle_adjacentes[]=$salle_adjacentes[$i]->id;
         }
-        return view('exposition.index', [
+        return view('AmeriqueNord', [
             'salle'=> $salle_n,
             'liste_salle_adjacentes'=>$liste_salle_adjacentes,
             'oeuvres'=> $oeuvres,

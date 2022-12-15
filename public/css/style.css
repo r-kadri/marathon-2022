@@ -1027,6 +1027,61 @@ html {
 .monprofile a svg {
     margin-left: 30px;
 }
+/******************************
+        Form TRIE
+******************************/
+
+.trie{
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    justify-content: space-evenly;
+    text-transform: uppercase;
+}
+
+.trie a{
+    text-decoration: none;
+    color: white;
+    font-family: 'Open sans';
+}
+
+.trie form{
+    display: flex;
+    flex-direction: column;
+}
+
+.trie form input{
+    color: white;
+    background-color: #2DC8AC;
+    border: none;
+    width: 200px;
+    font-family: 'Open sans';
+    text-align: center;
+}
+
+.trie form select{
+    color: white;
+    background-color: #2DC8AC;
+    border: none;
+    border-bottom: solid 2px white;
+    font-family: 'Open sans';
+    text-align: center;
+}
+
+
+
+.trie .switch{
+    background-color: #2DC8AC;
+    border: solid 2px;
+    border-color: #141D77;
+    box-shadow: -3px -3px 0px 0px #2DC8AC;
+    color: white;
+    padding: 5px 20px;
+    text-transform: uppercase;
+    font-family: 'Chau Philomene One', sans-serif;
+}
 
 /******************************
         Slider Oeuvre

@@ -52,7 +52,7 @@ Route::get('/monprofil', function () {
     return view('monprofil');
 })->name('monprofil');
 Route::get('/AmeriqueNord', function () {
-    return view('AmeriqueNord');
+    return view('AmeriqueNord',['n_salle'=>1]);
 })->name('AmeriqueNord');
 Route::get('/Afrique', function () {
     return view('Afrique');
@@ -69,6 +69,10 @@ Route::get('/asie', function () {
 Route::get('/oceanie', function () {
     return view('oceanie');
 })->name('oceanie');
+Route::get('/masalle', function () {
+    return view('masalle');
+})->name('masalle');
+
 
 
 Route::get('/home', function () {
