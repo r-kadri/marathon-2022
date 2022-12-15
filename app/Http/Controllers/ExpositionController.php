@@ -111,11 +111,11 @@ class ExpositionController extends Controller
         //$oeuvre = Oeuvre::all();
         $salles = Salle::all();
 
-        //if(Auth::user()){
-            return view('exposition.create', ['salles' => $salles]);
+        if(Auth::user()){
+            return view('exposition.create');
 
-        //}
-        //return redirect()->route('oeuvre.index');
+        }
+        return redirect()->route('exposition.index');
 
     }
 
@@ -137,6 +137,7 @@ class ExpositionController extends Controller
 
         $oeuvre = new Oeuvre();
 
+
         $oeuvre->salle_id=$request->salle_id;
         $oeuvre->nom=$request->nom;
         $oeuvre->media_url=$request->media_url;
@@ -145,8 +146,29 @@ class ExpositionController extends Controller
         $oeuvre->date_creation=$request->date_creation;
         $oeuvre->description=$request->description;
 
+        if(Auth::user()->admin){
+            $oeuvre->valide=true;
+        }
+        else {
+            $oeuvre->valide=false;
+        }
+
         $oeuvre->save();
 
         return redirect()->route('exposition.index');
+    }
+
+    public function valideOeuvre(Request $request){
+        $oeuvre = Oeuvre::findOrFail($request->oeuvre_id);
+
+        if($request->valide == 'yes'){
+            $oeuvre->valide = true;
+            $oeuvre->save();
+        }
+        else {
+            $oeuvre->delete();
+        }
+
+        return redirect()->route('exposition.show', ['exposition' => $oeuvre]);
     }
 }
