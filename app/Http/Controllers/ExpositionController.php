@@ -159,7 +159,6 @@ class ExpositionController extends Controller
 
     public function valideOeuvre(Request $request){
         $oeuvre = Oeuvre::findOrFail($request->oeuvre_id);
-        $salle = Salle::findOrFail($request->salle_id);
 
         if($request->valide == 'yes'){
             $oeuvre->valide = true;
@@ -169,6 +168,6 @@ class ExpositionController extends Controller
             $oeuvre->delete();
         }
 
-        return redirect()->route('exposition.show', ['exposition' => $salle]);
+        return redirect()->route('exposition.show', ['exposition' => $oeuvre]);
     }
 }
