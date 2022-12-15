@@ -109,6 +109,7 @@ class ExpositionController extends Controller
     public function create(){
 
         //$oeuvre = Oeuvre::all();
+        $salles = Salle::all();
 
         if(Auth::user()){
             return view('exposition.create');

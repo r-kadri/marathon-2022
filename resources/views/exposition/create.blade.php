@@ -15,11 +15,15 @@
         <h3>Création d'une oeuvre</h3>
         <hr class="mt-2 mb-2">
     </div>
-
+    
     <div>
         {{-- Salle id  --}}
-        <label for="salle_id"><strong>Salle_id : </strong></label>
-        <input type="number" class="form-control" name="salle_id" id="salle_ic">
+        <select name="salle_id" id="salle_id">
+            @foreach ($salles as $salle)
+                <option value="{{$salle->id}}">Salle n°{{$salle->id}}</option>
+            @endforeach
+        </select>
+        
 
     </div>
     <div>
