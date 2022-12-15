@@ -48,9 +48,6 @@ Route::get('/edito', function () {
 Route::get('/interviews', function () {
     return view('interviews');
 })->name('interviews');
-Route::get('/monprofil', function () {
-    return view('monprofil');
-})->name('monprofil');
 Route::get('/AmeriqueNord', function () {
     return view('AmeriqueNord',['n_salle'=>1]);
 })->name('AmeriqueNord');

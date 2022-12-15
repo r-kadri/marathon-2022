@@ -17,7 +17,7 @@ class ExpositionController extends Controller
 {
     public function index(Request $request){
 
-        $oeuvres = Oeuvre::all('americ');
+        $oeuvres = Oeuvre::all();
         $tags = Tag::all();
         $param_auteur = $request->input('auteur',null);
         $param_tag = $request->input('tag',null);
@@ -48,7 +48,7 @@ class ExpositionController extends Controller
         $liste_oeuvres = [];
         foreach ($oeuvres as $oeuvre) {
             
-            if($oeuvre->salle == $salle_n){
+            if($oeuvre->salle->id == $salle_n){
                 $liste_oeuvres[]=$oeuvre;
             }
         }
