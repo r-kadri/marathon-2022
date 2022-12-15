@@ -17,15 +17,6 @@
 </form>
 <a href="{{ route('exposition.index',["action"=>"top"]) }}">voir les oeuvres les plus recentes</a>
 <a href="{{ route('exposition.index',["salle"=>$salle]) }}"></a></br>
-<form action="{{route('exposition.index',["n_salle"=>$salle])}}" method="get">
-    <select name="tag">
-        <option value="" selected>-- Tous tag --</option>
-        @foreach($tags as $tag)
-        <option value="{{$tag->id}}" @if($param_tag==$tag) selected @endif>{{$tag->intitule}}</option>
-        @endforeach
-    </select>
-    <input type="submit" value="Recherche">
-</form>
 @foreach($liste_salle_adjacentes as $page)
 <a href="{{ route('exposition.index',["deplacement"=>'true',"n_salle"=>$page])}}">allez vers la page n°{{$page}}</a></br>
 @endforeach
