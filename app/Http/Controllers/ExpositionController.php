@@ -114,13 +114,11 @@ class ExpositionController extends Controller
             return view('exposition.create');
 
         }
-        return redirect()->route('oeuvre.index');
+        return redirect()->route('exposition.index');
 
     }
 
     public function store(Request $request){
-
-        $createOeuvre = Oeuvre::create();
 
         $rep = $request->input('salle',null);
         $this->validate(
@@ -147,11 +145,11 @@ class ExpositionController extends Controller
         $oeuvre->date_creation=$request->date_creation;
         $oeuvre->description=$request->description;
 
-        if($createOeuvre->user->admin){
-            $createOeuvre->valide=true;
+        if(Auth::user()->admin){
+            $oeuvre->valide=true;
         }
         else {
-            $createOeuvre->valide=false;
+            $oeuvre->valide=false;
         }
 
         $oeuvre->save();
