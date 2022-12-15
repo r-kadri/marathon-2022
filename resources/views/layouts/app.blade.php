@@ -67,7 +67,7 @@
             <li class="rose"><a href="{{route('salle')}}">Les salles</a></li>
             <li class="jaune"><a href="{{route('oeuvre')}}">Les Oeuvres</a></li>
             <li class="bleu-clair"><a href="{{route('apropos')}}">à propos</a></li>
-            <li class="bleu-fonce"><a href="{{route('monprofil')}}">Mon profil</a></li>
+            <li class="bleu-fonce"><a href="{{route('profil')}}">Mon profil</a></li>
             @endif
             <li class="vert"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.
           getElementById('logout-form').submit();">

@@ -51,6 +51,24 @@ Route::get('/interviews', function () {
 Route::get('/monprofil', function () {
     return view('monprofil');
 })->name('monprofil');
+Route::get('/AmeriqueNord', function () {
+    return view('AmeriqueNord');
+})->name('AmeriqueNord');
+Route::get('/Afrique', function () {
+    return view('Afrique');
+})->name('Afrique');
+Route::get('/AmeriqueSud', function () {
+    return view('AmeriqueSud');
+})->name('AmeriqueSud');
+Route::get('/europe', function () {
+    return view('europe');
+})->name('europe');
+Route::get('/asie', function () {
+    return view('asie');
+})->name('asie');
+Route::get('/oceanie', function () {
+    return view('oceanie');
+})->name('oceanie');
 
 
 Route::get('/home', function () {
