@@ -48,10 +48,6 @@ Route::get('/edito', function () {
 Route::get('/interviews', function () {
     return view('interviews');
 })->name('interviews');
-Route::get('/monprofil', function () {
-    return view('monprofil');
-})->name('monprofil');
-
 
 Route::get('/home', function () {
     return view('home');
