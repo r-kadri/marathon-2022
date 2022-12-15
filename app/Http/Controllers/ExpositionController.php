@@ -115,7 +115,7 @@ class ExpositionController extends Controller
             return view('exposition.create');
 
         }
-        return redirect()->route('exposition.index');
+        return redirect()->route('exposition.index', ['salles'=>$salles]);
 
     }
 
