@@ -62,16 +62,14 @@
         <h3>Liste des oeuvres</h3>
         <ul>
             @foreach($oeuvres as $oeuvre)
-                @if ($oeuvre->valide)
-                    <a href="{{ route('exposition.show', $oeuvre->id) }}"> Voir detail de l'oeuvre</a>
-                    <strong>name :</strong>  {{ $oeuvre->nom}}</br>
-                    <strong>media url : </strong> {{ $oeuvre->media_url }}</br>
-                    <strong>description :</strong> {{ $oeuvre->description }}</br>
-                    <strong>date de creation :</strong> {{ $oeuvre->date_creation }}</br>
-                    <strong>auteur :</strong> {{ $oeuvre->auteur }}</br>
+                <a href="{{ route('exposition.show', $oeuvre->id) }}"> Voir detail de l'oeuvre</a>
+                <strong>name :</strong>  {{ $oeuvre->nom}}</br>
+                <strong>media url : </strong> {{ $oeuvre->media_url }}</br>
+                <strong>description :</strong> {{ strip_tags($oeuvre->description) }}</br>
+                <strong>date de creation :</strong> {{ $oeuvre->date_creation }}</br>
+                <strong>auteur :</strong> {{ $oeuvre->auteur }}</br>
 
-                    <hr>    
-                @endif
+                <hr>
             @endforeach
         </ul>
 
