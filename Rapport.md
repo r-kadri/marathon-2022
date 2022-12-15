@@ -6,7 +6,6 @@
 2. Ryan Kadri
 3. Clément Mahieux
 
-
 ## Partie de Lucas 
 
 Je me suis tout d'abord occupé de fork le projet de base, d'inviter tous les membres de mon groupe, ainsi d'expliquer aux MMI le fonctionnement de GIT et les commandes de base nécessaires pour mener le projet à bien.
@@ -47,22 +46,27 @@ On crée ensuite une autre méthode valideOeuvre(), qui permet d'analyser la req
 
 Ensuite, dans notre index, on ajoute également un if permettant de voir si l'utilisateur connecté est un administrateur, si c'est un administrateur, il aura accès à deux boutons qui permettant de soit refuser, ou accepter la requête de création de l'oeuvre.
 
-Je me suis également occupé avec Ryan de fixer quelques bugs que nous avions, comme par exemple pour l'affichage des images
-# Partie de clement
-j'ai effectuer la vue index avec d'affichage de touts les oeuvres puis j'ai effectuer les differents filtres qui sont appliquer
-(j'ai fait un filtre) pour trier les oeuvre et garder que celle avec l'auteur selectioner dans le menu deroulan
-(et un filtre pour les tags mais j'ai abandoner en m'apercevant que c'estait pas demander)
-je me suis chargé aussi des salles et du deplacement dans celles si en pouvant aller d'une salle a une autre des qu'il est possible
-ensuite j'ai du modifier le filtre du tris pour les auteurs pour que les auteur dans le filtre sont les auteur uniquement present dans
+Je me suis également occupé avec Ryan de fixer quelques bugs que nous avions, comme par exemple pour l'affichage des images, en effet nous avons du mettre asset devant le chemin de l'image pour pouvoir les afficher.
+
+
+## Partie de clement
+
+
+J'ai effectué la vue index avec l'affichage de toutes les oeuvres, puis j'ai effectué les différents filtres qui sont appliqués
+(j'ai fait un filtre) pour trier les oeuvres et garder que celles avec l'auteur selectioné dans le menu déroulant
+(et un filtre pour les tags mais j'ai abandoné en m'apercevant que ce n'était pas obligatoire).
+Je me suis chargé aussi des salles et du deplacement dans celles ci, en pouvant aller d'une salle à une autre dès que c'était possible.
+Ensuite j'ai du modifier le filtre du tris pour les auteurs pour que les auteurs dans le filtre soient uniquement présent dans
 la salle actuelle.
-je me suis aussi occupé des routes poermetant de naviguer entre les differentes vue.
-j'ai rencontrer pluiseurs problèmes dans la creation de l'index surtout lors de l'integration en effet imposible de recuperer les bonnes
-donnné de la base de donné pour les integre nous avon spourtant comencer a faire l'integration assé tot dans le projet .
-deplus j'ai aussi passé pas mal de temp sur le filtre pour les tags  en effet celui si etait particulièrement compicé a trouver 
-les bonnes oeuvre qui sont concerné dans la BD.
-parlon maintenant de tout ce qui concerne la cohesion d'equipe avec la rencontre avec les mmi qui c'est bien passé puis nous avons
-commencer a parler en quoi le projet concistera et quel sera le contenue de notre exposition,nous avons donc utiliser git avec 
-simplicite affin d'evoluer sur notre projet tous ensemble. 
+
+
+Je me suis aussi occupé des routes permettant de naviguer entre les différentes vues.
+J'ai rencontré plusieurs problèmes dans la creation de l'index surtout lors de l'intégration, en effet, imposible de récuperer les bonnes données de la base de donnée pour les intégrer, nous avons pourtant commencé à faire l'intégration assez tôt dans le projet .
+De plus, j'ai aussi passé pas mal de temps sur le filtre pour les tagss  en effet celui ci était particulièrement compliqué à trouver 
+Les bonnes oeuvres qui sont concernées dans la BD.
+Parlons maintenant de tout ce qui concerne la cohésion d'équipe avec la rencontre avec les mmi qui c'est bien passée puis nous avons
+commencé a parler en quoi le projet concistera et quel sera le contenue de notre exposition,nous avons donc utilisé git avec 
+simplicité afin d'évoluer sur notre projet tous ensemble. 
  
 ## Partie de Ryan KADRI  
 
