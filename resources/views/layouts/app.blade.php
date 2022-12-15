@@ -27,7 +27,7 @@
 <body>
     <nav class="nav-menu">
         <ul>
-            <li><a href="{{route('accueil')}}"><img src="/images/Logo2.png" alt=""></a></li>
+            <li><a href="{{route('accueil')}}"><img src="{{ asset('/images/Logo2.png')}}" alt=""></a></li>
             @guest
             <li class="rose"><a href="{{route('salle')}}">Les salles</a></li>
             <li class="jaune"><a href="{{route('oeuvre')}}">Les Oeuvres</a></li>
