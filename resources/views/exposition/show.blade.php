@@ -48,7 +48,7 @@
                         @if (!$comment->valide)
                             <li style="border: 1px solid black">
                                 <h4>  {{ $comment->titre }} (par {{ $comment->user->name }}, à {{ $comment->created_at->format('D-M-Y h:m') }})</h4>
-                                {{ $comment->contenu }}
+                                {{ strip_tags($comment->contenu) }}
                             </li>
                             <form action="{{ route('validComment') }}" method="post">
                                 @csrf
@@ -88,7 +88,7 @@
                 @if ($comment->valide)
                     <li>
                         <h4>  {{ $comment->titre }} (par {{ $comment->user->name }}, à {{ $comment->created_at->format('D-M-Y h:m') }})</h4>
-                        {{ $comment->contenu }}
+                        {{ strip_tags($comment->contenu) }}
                     </li>
                 @endif
             @endforeach
