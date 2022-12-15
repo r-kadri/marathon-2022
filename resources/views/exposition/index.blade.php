@@ -15,6 +15,10 @@
     </select>
     <input type="submit" value="Recherche">
 </form>
+<form>
+    <input type="searchbar" value="rechercher">
+    <input type="submit" value="Recherche">
+</form>
 <a href="{{ route('exposition.index',["action"=>"top"]) }}">voir les oeuvres les plus recentes</a>
 <a href="{{ route('exposition.index',["salle"=>$salle]) }}"></a></br>
 @foreach($liste_salle_adjacentes as $page)

@@ -9,6 +9,6 @@
         <a class="LATAM" href="{{route('exposition.index',['n_salle'=>4])}}">Amérique du sud</a>
         <a class="MOMA" href="{{route('exposition.index',['n_salle'=>5])}}">Afrique</a>
         <a class="AUS" href="{{route('exposition.index',['n_salle'=>6])}}">Océanie</a>
-        <a class="masalle" href="{{route('exposition.index',['n_salle'=>7])}}">Ma Salle</a>
+        <a class="masalle" href="{{route('exposition.index')}}">Ma Salle</a>
     </div>
 @endsection
