@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 /**
  * App\Models\Oeuvre
  *
@@ -14,11 +15,12 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $thumbnail_url
  * @property string $description
  * @property string $date_creation
+ * @property string $style
  * @property int $coord_x
  * @property int $coord_y
+ * @property int $valide
+ * @property string $auteur
  * @property int $salle_id
- * @property int $auteur_id
- * @property-read \App\Models\Auteur $auteur
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Commentaire[] $commentaires
  * @property-read int|null $commentaires_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $likes
@@ -30,7 +32,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Oeuvre newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Oeuvre newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Oeuvre query()
- * @method static \Illuminate\Database\Eloquent\Builder|Oeuvre whereAuteurId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Oeuvre whereAuteur($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Oeuvre whereCoordX($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Oeuvre whereCoordY($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Oeuvre whereDateCreation($value)
@@ -39,7 +41,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Oeuvre whereMediaUrl($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Oeuvre whereNom($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Oeuvre whereSalleId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Oeuvre whereStyle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Oeuvre whereThumbnailUrl($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Oeuvre whereValide($value)
  * @mixin \Eloquent
  */
 class Oeuvre extends Model {
@@ -47,16 +51,14 @@ class Oeuvre extends Model {
 
     public $timestamps = false;
 
-    public function tags() {
+        public function tags() {
         return $this->belongsToMany(Tag::class, 'oeuvre_tag');
     }
     public function likes() {
         return $this->belongsToMany(User::class, 'likes');
     }
 
-    public function auteur() {
-        return $this->belongsTo(Auteur::class);
-    }
+
 
     public function commentaires() {
         return $this->hasMany(Commentaire::class);
