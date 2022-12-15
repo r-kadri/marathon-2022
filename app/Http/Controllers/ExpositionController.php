@@ -21,13 +21,13 @@ class ExpositionController extends Controller
         $param_auteur = $request->input('auteur',null);
         $param_tag = $request->input('tag',null);
         $deplacement = $request->input('deplacement',null);
-        $salle = $request->input('n_salle',1);
+        $salle_n = $request->input('n_salle',1);
         if($param_auteur !== null) {
             $liste_oeuvres = [];
             foreach ($oeuvres as $oeuvre) {
                 if ($oeuvre->auteur === $param_auteur) {
                     $liste_oeuvres = [$oeuvre];
-                    $salle = $oeuvre->salle->id;
+                    $salle_n = $oeuvre->salle->id;
                 }
             }
             $oeuvres=$liste_oeuvres;
@@ -44,28 +44,26 @@ class ExpositionController extends Controller
             }
             $oeuvres = $liste_tags;
         }
-        if($deplacement !== null) {
-            $salle += 1;
-            $salle = ($salle % 6);
-            if ($salle === 0) {
-                $salle = 1;
-            }
-        }
         $liste_oeuvres = [];
         foreach ($oeuvres as $oeuvre) {
-            if($oeuvre->salle->id===$salle){
+            if($oeuvre->salle->id == $salle_n){
                 $liste_oeuvres[]=$oeuvre;
             }
         }
         $oeuvres=$liste_oeuvres;
         $auteurs = [];
-        $salle_tmp = Salle::find($salle);
-        foreach ($salle_tmp->oeuvres as $oeuvre){
+        $salle = Salle::find($salle_n);
+        foreach ($salle->oeuvres as $oeuvre){
             $auteurs[]=$oeuvre->auteur;
         }
-
+        $salle_adjacentes = $salle->suivantes;
+        $liste_salle_adjacentes =[];
+        for($i=0;$i<count($salle_adjacentes);$i++){
+            $liste_salle_adjacentes[]=$salle_adjacentes[$i]->id;
+        }
         return view('exposition.index', [
-            'salle'=> $salle,
+            'salle'=> $salle_n,
+            'liste_salle_adjacentes'=>$liste_salle_adjacentes,
             'oeuvres'=> $oeuvres,
             'auteurs' => $auteurs,
             'param_auteur' => $param_auteur,
@@ -83,7 +81,29 @@ class ExpositionController extends Controller
         if($request['sort'] === 'old') {
             $comments = $oeuvre->commentaires->sortByDesc('created_at');
         }
-        return view('exposition.show', ['oeuvre' => $oeuvre, 'comments' => $comments]);
+
+        if(Auth::user()) {
+            $userIds = $oeuvre->likes->pluck('id')->toArray();
+            if(in_array(Auth::id(), $userIds)) {
+                return view('exposition.show', ['oeuvre' => $oeuvre, 'comments' => $comments, 'liked' => true]);
+            }
+        }
+
+        return view('exposition.show', ['oeuvre' => $oeuvre, 'comments' => $comments, 'liked' => false]);
+    }
+
+    /**
+     * Ajouter ou supprimer le like d'un utilisateur
+     */
+    public function addLike(Request $request) {
+        $oeuvre = Oeuvre::findOrFail($request->oeuvre_id);
+
+        if($request->like == 'add') {
+            $oeuvre->likes()->attach(Auth::id());
+        } else {
+            $oeuvre->likes()->detach(Auth::id());
+        }
+        return redirect()->route('exposition.show', ['exposition' => $request->oeuvre_id]);
     }
 
     public function create(){

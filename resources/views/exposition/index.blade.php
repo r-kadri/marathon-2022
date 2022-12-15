@@ -29,7 +29,9 @@
         </select>
         <input type="submit" value="Recherche">
     </form>
-    <a href="{{ route('exposition.index',["deplacement"=>'true',"n_salle"=>$salle])}}">ce deplacer dans la salle de droite</a></br>
+    @foreach($liste_salle_adjacentes as $page)
+        <a href="{{ route('exposition.index',["deplacement"=>'true',"n_salle"=>$page])}}">allez vers la page n°{{$page}}</a></br>
+    @endforeach
     <strong>salle n°</strong>{{$salle}}
     @if(!empty($oeuvres))
         <ul>
