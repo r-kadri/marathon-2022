@@ -57,3 +57,9 @@ ensuite j'ai du modifier le filtre du tris pour les auteurs pour que les auteur 
 la salle actuelle.
 je me suis aussi occupé des routes poermetant de naviguer entre les differentes vue.
 
+## Partie de Ryan KADRI  
+
+Suite à la répartition des tâches, j'ai commencé ce que j'avais à faire.
+J'ai fait principalement la page qui détail une oeuvre, notamment l'ajout et la validation de commentaires par un admin. On peut liker une oeuvre, la commenter, etc.
+J'ai également fait la page profile de l'utilisateur qui récapitule les informations, likes, commentaires.
+
