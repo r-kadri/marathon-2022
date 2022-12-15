@@ -30,6 +30,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Salle wherePlanUrl($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Salle whereTheme($value)
  * @mixin \Eloquent
+ * @property int $entree
+ * @property int $editable
+ * @method static \Illuminate\Database\Eloquent\Builder|Salle whereEditable($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Salle whereEntree($value)
  */
 class Salle extends Model
 {

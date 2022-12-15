@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\ExpositionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +28,17 @@ Route::get('/home', function () {
 })->middleware(['auth'])->name('home');
 
 Route::resource('exposition',ExpositionController::class);
+
+// USER PROFIL //
+Route::get('user-profil', [UserController::class, 'profil'])->name('profil')->middleware('auth');
+Route::post('upload-avatar', [UserController::class, 'upload'])->name('uploadAvatar');
+
+
+// COMMENTAIRES //
+Route::post('/commentaire/store', [CommentaireController::class, 'store'])->name('storeComment');
+// VALIDER OU NON
+Route::post('/commentaire/valide', [CommentaireController::class, 'validComment'])->name('validComment');
+
+
+// LIKE OEUVRE
+Route::post('/exposition-like', [ExpositionController::class, 'addLike'])->name('addLike');
