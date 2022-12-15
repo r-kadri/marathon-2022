@@ -112,7 +112,7 @@ class ExpositionController extends Controller
         $salles = Salle::all();
 
         if(Auth::user()){
-            return view('exposition.create');
+            return view('exposition.create', ['salles' => $salles]);
 
         }
         return redirect()->route('exposition.index', ['salles'=>$salles]);
