@@ -5,9 +5,8 @@
 
 @section('main')
 
-    @can('create', \App\Models\Oeuvre::class )
-        <h4><a href="{{ route('exposition.create') }}">Nouvel oeuvre</a></h4>
-    @endcan
+        <h4><a href="{{ route('exposition.create') }}">Nouvelle oeuvre</a></h4>
+
 
     <form action="{{route('exposition.index',["n_salle"=>$salle])}}" method="get">
         <select name="auteur">
@@ -18,6 +17,9 @@
         </select>
         <input type="submit" value="Recherche">
     </form>
+    <a href="{{ route('exposition.index',["action"=>"note"]) }}">voir les oeuvres les mieux note</a></br>
+    <a href="{{ route('exposition.index',["action"=>"top"]) }}">voir les oeuvres les plus recentes</a>
+        <a href="{{ route('exposition.index',["salle"=>$salle]) }}"></a></br>
     <form action="{{route('exposition.index',["n_salle"=>$salle])}}" method="get">
         <select name="tag">
             <option value=""  selected >-- Tous tag --</option>
@@ -44,9 +46,7 @@
                     @endforeach
                 @endif
                 <br>
-                @can('createOeuvre', $oeuvre)
-                    <h4><a href="{{ route('exposition.create') }}">Nouveau oeuvre</a></h4>
-                @endcan
+
                 <a href="{{ route('exposition.show', $oeuvre->id) }}"> Voir detail de l'oeuvre</a>
                 <strong>name :</strong>  {{ $oeuvre->nom}}</br>
                 <strong>media url : </strong> {{ $oeuvre->media_url }}</br>

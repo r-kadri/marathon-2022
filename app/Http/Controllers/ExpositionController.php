@@ -105,4 +105,47 @@ class ExpositionController extends Controller
         }
         return redirect()->route('exposition.show', ['exposition' => $request->oeuvre_id]);
     }
+
+    public function create(){
+
+        //$oeuvre = Oeuvre::all();
+
+        //if(Auth::user()){
+            return view('exposition.create');
+
+        //}
+        //return redirect()->route('oeuvre.index');
+
+    }
+
+    public function store(Request $request){
+
+        $rep = $request->input('salle',null);
+        $this->validate(
+            $request, [
+                'salle_id'=>'required',
+                'nom'=>'required',
+                'media_url'=>'required',
+                'thumbnail_url'=>'required',
+                'auteur'=>'required',
+                'date_creation'=>'required',
+                'description'=>'required'
+
+            ]
+        );
+
+        $oeuvre = new Oeuvre();
+
+        $oeuvre->salle_id=$request->salle_id;
+        $oeuvre->nom=$request->nom;
+        $oeuvre->media_url=$request->media_url;
+        $oeuvre->thumbnail_url=$request->thumbnail_url;
+        $oeuvre->auteur=$request->auteur;
+        $oeuvre->date_creation=$request->date_creation;
+        $oeuvre->description=$request->description;
+
+        $oeuvre->save();
+
+        return redirect()->route('exposition.index');
+    }
 }
