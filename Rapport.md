@@ -47,4 +47,6 @@ On crée ensuite une autre méthode valideOeuvre(), qui permet d'analyser la req
 
 Ensuite, dans notre index, on ajoute également un if permettant de voir si l'utilisateur connecté est un administrateur, si c'est un administrateur, il aura accès à deux boutons qui permettant de soit refuser, ou accepter la requête de création de l'oeuvre.
 
-Je me suis également occupé avec Ryan de fixer quelques bugs que nous avions, comme par exemple pour l'affichage des images
+Je me suis également occupé avec Ryan de fixer quelques bugs que nous avions, comme par exemple pour l'affichage des images, nous avons du rajouter des assert devant le chemin de l'image pour pouvoir les afficher sur le site.
+
+J'ai également rempli, à la main avec sqlite, la base de données du site, ainsi nous avions des images dans nos salles, avec leur nom, description, id de la salle etc...
