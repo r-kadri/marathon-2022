@@ -120,6 +120,8 @@ class ExpositionController extends Controller
 
     public function store(Request $request){
 
+        $createOeuvre = Oeuvre::create();
+
         $rep = $request->input('salle',null);
         $this->validate(
             $request, [
@@ -136,6 +138,7 @@ class ExpositionController extends Controller
 
         $oeuvre = new Oeuvre();
 
+
         $oeuvre->salle_id=$request->salle_id;
         $oeuvre->nom=$request->nom;
         $oeuvre->media_url=$request->media_url;
@@ -144,8 +147,30 @@ class ExpositionController extends Controller
         $oeuvre->date_creation=$request->date_creation;
         $oeuvre->description=$request->description;
 
+        if($createOeuvre->user->admin){
+            $createOeuvre->valide=true;
+        }
+        else {
+            $createOeuvre->valide=false;
+        }
+
         $oeuvre->save();
 
         return redirect()->route('exposition.index');
+    }
+
+    public function valideOeuvre(Request $request){
+        $oeuvre = Oeuvre::findOrFail($request->oeuvre_id);
+        $salle = Salle::findOrFail($request->salle_id);
+
+        if($request->valide == 'yes'){
+            $oeuvre->valide = true;
+            $oeuvre->save();
+        }
+        else {
+            $oeuvre->delete();
+        }
+
+        return redirect()->route('exposition.index', ['exposition' => $salle]);
     }
 }
