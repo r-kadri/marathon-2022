@@ -910,6 +910,101 @@ html {
         PAGE PROFIL
 *************************/
 
+.profil{
+    display: grid;
+    grid-template-areas: ". e ."
+                         "a a a"
+                         "b c d";
+    margin: 0 auto;
+    max-width: 1200px;
+    
+}
+
+.user-title{
+    text-align: end;
+    grid-area: e;
+    font-family: 'Chau Philomene One', sans-serif;
+    color: white;
+    font-size: 50px;
+    transform: translateX(50px);
+}
+
+.userinfo{
+    grid-area: a;
+    text-align: center;
+}
+
+.userinfo .label-file{
+    background-color: #2DC8AC;
+    color: white;
+    height: 35px;
+    font-family: 'Open sans';
+    padding-right: 100px;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    cursor: pointer;
+}
+.userinfo ul li{
+    color: white;
+    font-family: 'Open sans';
+    margin-top: -30px;
+    margin-bottom: 50px;
+    list-style-type: none;
+}
+
+.userinfo button{
+    position: absolute;
+    transform: translateX(95px);
+    height: 35px;
+    background-color: #5C74DD;
+    outline: none;
+    border: none;
+    color: white;
+    font-family: 'Open sans';
+    cursor: pointer;
+}
+
+.userinfo form{
+    display: flex;
+    justify-content: center;
+}
+
+.userinfo .input-file{
+    display: none;
+}
+
+.comments{
+    grid-area: b;
+    color: white;
+    font-family: 'Open sans';
+}
+
+.comments h3{
+    font-family: 'Chau Philomene One', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+
+
+.liked{
+    grid-area: c;
+    color: white;
+    font-family: 'Open sans';
+}
+
+.liked h3{
+    font-family: 'Chau Philomene One', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+.monprofile{
+    grid-area: d;
+}
+
+
+
 .monprofile {
     display: flex;
     flex-direction: column;
@@ -932,7 +1027,190 @@ html {
 .monprofile a svg {
     margin-left: 30px;
 }
+/******************************
+        Form TRIE
+******************************/
 
+.trie{
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    justify-content: space-evenly;
+    text-transform: uppercase;
+}
+
+.trie a{
+    text-decoration: none;
+    color: white;
+    font-family: 'Open sans';
+}
+
+.trie form{
+    display: flex;
+    flex-direction: column;
+}
+
+.trie form input{
+    color: white;
+    background-color: #2DC8AC;
+    border: none;
+    width: 200px;
+    font-family: 'Open sans';
+    text-align: center;
+}
+
+.trie form select{
+    color: white;
+    background-color: #2DC8AC;
+    border: none;
+    border-bottom: solid 2px white;
+    font-family: 'Open sans';
+    text-align: center;
+}
+
+
+
+.trie .switch{
+    background-color: #2DC8AC;
+    border: solid 2px;
+    border-color: #141D77;
+    box-shadow: -3px -3px 0px 0px #2DC8AC;
+    color: white;
+    padding: 5px 20px;
+    text-transform: uppercase;
+    font-family: 'Chau Philomene One', sans-serif;
+}
+
+/******************************
+        Slider Oeuvre
+*****************************/
+
+.title-salle{
+    color: white;
+    font-family: 'Chau Philomene One', sans-serif;
+    font-size: 50px;
+    text-align: center;
+}
+
+#slider {
+    position: relative;
+    width: 50%;
+    height: 30vw;
+    margin: 80px auto;
+    font-family: 'Open sans', sans-serif;
+    perspective: 1400px;
+    transform-style: preserve-3d;
+  }
+  
+  input[type=radio] {
+    position: relative;
+    top: 108%;
+    left: 50%;
+    width: 18px;
+    height: 18px;
+    margin: 0 15px 0 0;
+    opacity: 0.4;
+    transform: translateX(-83px);
+    cursor: pointer;
+  }
+  
+  
+  input[type=radio]:nth-child(5) {
+    margin-right: 0px;
+  }
+  
+  input[type=radio]:checked {
+    opacity: 1;
+  }
+  
+  
+  
+  
+  #slider label {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    transition: transform 400ms ease;
+  }
+
+  #slider img{
+    max-width: 100%;
+    height: 300px;
+  }
+
+  #slider .image{
+    flex-basis: 40%;
+  }
+
+  #slider .descr{
+    flex-basis: 50%;
+    text-align: justify;
+  }
+  
+  #slide1 {
+    background: #FD795D;
+  }
+  
+  #slide2 {
+    background: #FFB580;
+  }
+  
+  #slide3 {
+    background: #67BDE0;
+  }
+  
+  #slide4 {
+    background: #5C74DD;
+  }
+  
+  #slide5 {
+    background: #FFE809;
+  }
+  
+  
+  /* Slider Functionality */
+  
+  /* Active Slide */
+  #s1:checked ~ #slide1, #s2:checked ~ #slide2, #s3:checked ~ #slide3, #s4:checked ~ #slide4, #s5:checked ~ #slide5 {
+    box-shadow: 0 13px 26px rgba(0,0,0, 0.3), 0 12px 6px rgba(0,0,0, 0.2);
+    transform: translate3d(0%, 0, 0px);
+  }
+  
+  /* Next Slide */
+  #s1:checked ~ #slide2, #s2:checked ~ #slide3, #s3:checked ~ #slide4, #s4:checked ~ #slide5, #s5:checked ~ #slide1 {
+    box-shadow: 0 6px 10px rgba(0,0,0, 0.3), 0 2px 2px rgba(0,0,0, 0.2);
+    transform: translate3d(15%, 0, -100px);
+  }
+  
+  
+  /* Next to Next Slide */
+  #s1:checked ~ #slide3, #s2:checked ~ #slide4, #s3:checked ~ #slide5, #s4:checked ~ #slide1, #s5:checked ~ #slide2 {
+    box-shadow: 0 1px 4px rgba(0,0,0, 0.4);
+    transform: translate3d(30%, 0, -250px);
+  }
+  
+  /* Previous to Previous Slide */
+  #s1:checked ~ #slide4, #s2:checked ~ #slide5, #s3:checked ~ #slide1, #s4:checked ~ #slide2, #s5:checked ~ #slide3 {
+    box-shadow: 0 1px 4px rgba(0,0,0, 0.4);
+    transform: translate3d(-30%, 0, -250px);
+  }
+  
+  /* Previous Slide */
+  #s1:checked ~ #slide5, #s2:checked ~ #slide1, #s3:checked ~ #slide2, #s4:checked ~ #slide3, #s5:checked ~ #slide4 {
+    box-shadow: 0 6px 10px rgba(0,0,0, 0.3), 0 2px 2px rgba(0,0,0, 0.2);
+    transform: translate3d(-15%, 0, -100px);
+  }
 /***************************
             FOOTER
 ***************************/
@@ -959,4 +1237,14 @@ footer img {
     footer {
         width: 400px;
     }
+}
+
+
+#loader{
+    background: #000 url('/images/logo.gif') no-repeat center center;
+    background-size: 30%;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
 }

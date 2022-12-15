@@ -20,6 +20,13 @@
 </head>
 
 <body>
+    <div id="loader"></div>
+    <script>
+   var loader = document.getElementById("loader");
+   window.addEventListener("load",function(){
+    loader.style.display = "none";
+   })
+    </script>
     <div class="container">
         <nav class="nav-menu">
             <ul>
@@ -46,10 +53,10 @@
             </ul>
         </nav>
         <div class="hamburger-menu">
-    <input id="menu__toggle" type="checkbox" />
-    <label class="menu__btn" for="menu__toggle">
-      <span></span>
-    </label>
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+                <span></span>
+            </label>
 
     <ul class="menu__box">
             <li><a href="{{route ('accueil')}}">Accueil</a></li>
@@ -67,13 +74,13 @@
             @endif
             <li class="vert"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.
           getElementById('logout-form').submit();">
-                    Logout
-                </a></li>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> {{ csrf_field() }}
-            </form>
-            @endguest
-    </ul>
-  </div>
+                        Logout
+                    </a></li>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> {{ csrf_field() }}
+                </form>
+                @endguest
+            </ul>
+        </div>
 
 
 
