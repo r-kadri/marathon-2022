@@ -63,7 +63,7 @@ les bonnes oeuvre qui sont concerné dans la BD.
 parlon maintenant de tout ce qui concerne la cohesion d'equipe avec la rencontre avec les mmi qui c'est bien passé puis nous avons
 commencer a parler en quoi le projet concistera et quel sera le contenue de notre exposition,nous avons donc utiliser git avec 
 simplicite affin d'evoluer sur notre projet tous ensemble. 
-
+ 
 ## Partie de Ryan KADRI  
 
 Suite à la répartition des tâches, j'ai commencé ce que j'avais à faire.
