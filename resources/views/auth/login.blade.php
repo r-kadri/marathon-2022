@@ -3,7 +3,7 @@
 @section('content')
 
     @include("_errors")
-<div >
+<div class="login-form" >
     <form action="{{route('login')}}" method="post">
         @csrf
         <div>
@@ -13,15 +13,13 @@
             </div>
         </div>
         <div>
-            <label for="email">Adresse mail</label>
-            <input type="email" name="email" id="email">
+            <input type="email" name="email" id="email" placeholder="Email">
         </div>
         <div>
-            <label for="pwd">Mot de passe</label>
-            <input type="password" name="password" id="pwd">
+            <input type="password" name="password" id="pwd" placeholder="Mot de passe">
         </div>
         <div >
-            <input type="submit" value="Connexion">
+            <input class="button" type="submit" value="Connexion">
         </div>
     </form>
     <div>

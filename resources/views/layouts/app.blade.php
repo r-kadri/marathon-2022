@@ -16,6 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chau+Philomene+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/scss/app.scss','resources/css/app.css','resources/js/app.js'])
@@ -24,8 +25,9 @@
 <body>
     <nav class="nav-menu">
         <ul>
+            <li><a href="{{route('accueil')}}"><img src="/images/Logo2.png" alt=""></a></li>
             @guest
-            <li class="rose"><a href="#">Les salles</a></li>
+            <li class="rose"><a href="{{route('salle')}}">Les salles</a></li>
             <li class="jaune"><a href="#">Les Oeuvres</a></li>
             <li class="bleu-clair"><a href="#">à propos</a></li>
             <li class="bleu-fonce"><a href="{{route ('login')}}">Se connecter</a></li>
@@ -50,7 +52,12 @@
 
     @yield('content')
 
-   
+    <footer>
+        <img src="/images/Logo_AP.png" alt=""> <br>
+        <a href="">crédits</a>
+        <a href="">Mentions légales et politique de confidentialité</a>
+        <a href="">Plan du site</a>
+    </footer>
 
 </body>
 

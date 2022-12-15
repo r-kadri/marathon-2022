@@ -21,7 +21,7 @@
     <nav class="nav-menu">
         <ul >
             @guest
-                <li class="rose"><a href="#">Les salles</a></li>
+                <li class="rose"><a href="{{route('salle')}}">Les salles</a></li>
                 <li class="jaune"><a href="#">Les Oeuvres</a></li>
                 <li class="bleu-clair"><a href="#">à propos</a></li>
                 <li class="bleu-fonce"><a href="{{route ('login')}}">Se connecter</a></li>
