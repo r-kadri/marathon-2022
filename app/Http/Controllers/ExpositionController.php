@@ -15,14 +15,15 @@ use Illuminate\Support\Facades\Auth;
 
 class ExpositionController extends Controller
 {
-    public function index(Request $request){
+    public function index(Request $request)
+    {
         $oeuvres = Oeuvre::all();
         $tags = Tag::all();
-        $param_auteur = $request->input('auteur',null);
-        $param_tag = $request->input('tag',null);
-        $deplacement = $request->input('deplacement',null);
-        $salle_n = $request->input('n_salle',1);
-        if($param_auteur !== null) {
+        $param_auteur = $request->input('auteur', null);
+        $param_tag = $request->input('tag', null);
+        $deplacement = $request->input('deplacement', null);
+        $salle_n = $request->input('n_salle', 1);
+        if ($param_auteur !== null) {
             $liste_oeuvres = [];
             foreach ($oeuvres as $oeuvre) {
                 if ($oeuvre->auteur === $param_auteur) {
@@ -30,15 +31,14 @@ class ExpositionController extends Controller
                     $salle_n = $oeuvre->salle->id;
                 }
             }
-            $oeuvres=$liste_oeuvres;
+            $oeuvres = $liste_oeuvres;
         }
-        if($param_tag !== null){
-            $oeuvres=Oeuvre::all();
-            $liste_tags=[];
-            foreach ($oeuvres as $oeuvre){
-                foreach ($oeuvre->tags as $tag){
-                    if(strval($tag->id)=== $param_tag){
-                        $liste_tags[]=$oeuvre;
+        if ($param_tag !== null) {
+            $liste_tags = [];
+            foreach ($oeuvres as $oeuvre) {
+                foreach ($oeuvre->tags as $tag) {
+                    if (strval($tag->id) === $param_tag) {
+                        $liste_tags[] = $oeuvre;
                     }
                 }
             }
@@ -46,16 +46,37 @@ class ExpositionController extends Controller
         }
         $liste_oeuvres = [];
         foreach ($oeuvres as $oeuvre) {
-            if($oeuvre->salle->id == $salle_n){
-                $liste_oeuvres[]=$oeuvre;
+            if ($oeuvre->salle->id == $salle_n) {
+                $liste_oeuvres[] = $oeuvre;
             }
         }
-        $oeuvres=$liste_oeuvres;
+
+        $oeuvres = $liste_oeuvres;
         $auteurs = [];
         $salle = Salle::find($salle_n);
-        foreach ($salle->oeuvres as $oeuvre){
-            $auteurs[]=$oeuvre->auteur;
+        foreach ($salle->oeuvres as $oeuvre) {
+            $auteurs[] = $oeuvre->auteur;
         }
+        $tags_lst = [];
+        foreach ($salle->oeuvres as $oeuvre) {
+            if($oeuvre->salle->id == $salle_n) {
+                foreach ($oeuvre->tags as $tag) {
+                    $est_presten = false;
+                    if(count($tags_lst)==0){
+                        $tags_lst [] = $tag;
+                    }
+                    foreach ($tags_lst as $tags_l){
+                        if($tags_l->intitule == $tag->intitule){
+                            $est_presten = true;
+                        }
+                    }
+                    if(!$est_presten) {
+                        $tags_lst [] = $tag;
+                    }
+                }
+            }
+        }
+        $tags = $tags_lst;
         $salle_adjacentes = $salle->suivantes;
         $liste_salle_adjacentes =[];
         for($i=0;$i<count($salle_adjacentes);$i++){
