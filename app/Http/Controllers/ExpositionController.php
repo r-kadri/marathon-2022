@@ -110,11 +110,11 @@ class ExpositionController extends Controller
 
         //$oeuvre = Oeuvre::all();
 
-        //if(Auth::user()){
+        if(Auth::user()){
             return view('exposition.create');
 
-        //}
-        //return redirect()->route('oeuvre.index');
+        }
+        return redirect()->route('oeuvre.index');
 
     }
 
@@ -171,6 +171,6 @@ class ExpositionController extends Controller
             $oeuvre->delete();
         }
 
-        return redirect()->route('exposition.index', ['exposition' => $salle]);
+        return redirect()->route('exposition.show', ['exposition' => $salle]);
     }
 }
