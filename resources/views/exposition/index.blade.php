@@ -36,17 +36,6 @@
     @if(!empty($oeuvres))
         <ul>
             @foreach($oeuvres as $oeuvre)
-                @if(Auth::user())
-                    @foreach($list_fav as $fav)
-                        @if($oeuvre->id === $fav->id )
-                            est dans tes fav <a href="{{ route('exposition.index',["action"=>"supr_fav","id_o"=>$oeuvre->id]) }}">suprimer des favorie</a>
-                        @else
-                            <a href="{{ route('exposition.index',["action"=>"ajouter_fav","id_o"=>$oeuvre->id]) }}">ajouter au favorie</a>
-                        @endif
-                    @endforeach
-                @endif
-                <br>
-
                 <a href="{{ route('exposition.show', $oeuvre->id) }}"> Voir detail de l'oeuvre</a>
                 <strong>name :</strong>  {{ $oeuvre->nom}}</br>
                 <strong>media url : </strong> {{ $oeuvre->media_url }}</br>
