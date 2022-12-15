@@ -16,7 +16,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chau+Philomene+One&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/scss/app.scss','resources/css/app.css','resources/js/app.js'])
@@ -28,15 +30,15 @@
             <li><a href="{{route('accueil')}}"><img src="/images/Logo2.png" alt=""></a></li>
             @guest
             <li class="rose"><a href="{{route('salle')}}">Les salles</a></li>
-            <li class="jaune"><a href="#">Les Oeuvres</a></li>
-            <li class="bleu-clair"><a href="#">à propos</a></li>
+            <li class="jaune"><a href="{{route('oeuvre')}}">Les Oeuvres</a></li>
+            <li class="bleu-clair"><a href="{{route('apropos')}}">à propos</a></li>
             <li class="bleu-fonce"><a href="{{route ('login')}}">Se connecter</a></li>
             @else
             <li class="bjr"> Bonjour {{ Auth::user()->name }}</li> @if (Auth::user())
-            <li class="rose"><a href="#">Les salles</a></li>
-            <li class="jaune"><a href="#">Les Oeuvres</a></li>
-            <li class="bleu-clair"><a href="#">à propos</a></li>
-            <li class="bleu-fonce"><a href="#">Mon profil</a></li>
+            <li class="rose"><a href="{{route('salle')}}">Les salles</a></li>
+            <li class="jaune"><a href="{{route('oeuvre')}}">Les Oeuvres</a></li>
+            <li class="bleu-clair"><a href="{{route('apropos')}}">à propos</a></li>
+            <li class="bleu-fonce"><a href="{{route('monprofil')}}">Mon profil</a></li>
             @endif
             <li class="vert"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.
           getElementById('logout-form').submit();">
@@ -47,8 +49,35 @@
             @endguest
         </ul>
     </nav>
+    <div class="hamburger-menu">
+        <input id="menu__toggle" type="checkbox" />
+        <label class="menu__btn" for="menu__toggle">
+            <span></span>
+        </label>
 
-
+        <ul class="menu__box">
+            <li><a href="{{route ('accueil')}}">Accueil</a></li>
+            @guest
+            <li class="rose"><a href="{{route('salle')}}">Les salles</a></li>
+            <li class="jaune"><a href="{{route('oeuvre')}}">Les Oeuvres</a></li>
+            <li class="bleu-clair"><a href="{{route('apropos')}}">à propos</a></li>
+            <li class="bleu-fonce"><a href="{{route ('login')}}">Se connecter</a></li>
+            @else
+            <li class="bjr"> Bonjour {{ Auth::user()->name }}</li> @if (Auth::user())
+            <li class="rose"><a href="{{route('salle')}}">Les salles</a></li>
+            <li class="jaune"><a href="{{route('oeuvre')}}">Les Oeuvres</a></li>
+            <li class="bleu-clair"><a href="{{route('apropos')}}">à propos</a></li>
+            <li class="bleu-fonce"><a href="{{route('monprofil')}}">Mon profil</a></li>
+            @endif
+            <li class="vert"><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.
+          getElementById('logout-form').submit();">
+                    Logout
+                </a></li>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> {{ csrf_field() }}
+            </form>
+            @endguest
+        </ul>
+    </div>
 
     @yield('content')
 
