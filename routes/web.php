@@ -75,7 +75,12 @@ Route::get('/home', function () {
     return view('home');
 })->middleware(['auth'])->name('home');
 
+Route::get('/create', function () {
+    return view('exposition.create');
+})->middleware(['auth'])->name('create');
+
 Route::resource('exposition',ExpositionController::class);
+Route::post('/exposition-valide', [ExpositionController::class, 'valideOeuvre'])->name('valideOeuvre');
 
 // USER PROFIL //
 Route::get('user-profil', [UserController::class, 'profil'])->name('profil')->middleware('auth');
