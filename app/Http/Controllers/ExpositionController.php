@@ -103,6 +103,7 @@ class ExpositionController extends Controller
         $rep = $request->input('salle',null);
         $this->validate(
             $request, [
+                'salle_id'=>'required',
                 'nom'=>'required',
                 'media_url'=>'required',
                 'thumbnail_url'=>'required',
@@ -115,6 +116,7 @@ class ExpositionController extends Controller
 
         $oeuvre = new Oeuvre();
 
+        $oeuvre->salle_id=$request->salle_id;
         $oeuvre->nom=$request->nom;
         $oeuvre->media_url=$request->media_url;
         $oeuvre->thumbnail_url=$request->thumbnail_url;

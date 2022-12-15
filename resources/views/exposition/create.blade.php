@@ -15,6 +15,13 @@
         <h3>Création d'une oeuvre</h3>
         <hr class="mt-2 mb-2">
     </div>
+
+    <div>
+        {{-- Salle id  --}}
+        <label for="salle_id"><strong>Salle_id : </strong></label>
+        <input type="number" class="form-control" name="salle_id" id="salle_ic">
+
+    </div>
     <div>
         {{-- Nom  --}}
         <label for="nom"><strong>Nom : </strong></label>

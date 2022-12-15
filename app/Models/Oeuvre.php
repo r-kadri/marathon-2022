@@ -51,7 +51,7 @@ class Oeuvre extends Model {
 
     public $timestamps = false;
 
-    public function tags() {
+        public function tags() {
         return $this->belongsToMany(Tag::class, 'oeuvre_tag');
 
     }
