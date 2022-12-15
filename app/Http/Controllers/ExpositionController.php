@@ -169,6 +169,6 @@ class ExpositionController extends Controller
             $oeuvre->delete();
         }
 
-        return redirect()->route('exposition.show', ['exposition' => $oeuvre]);
+        return redirect()->route('exposition.index');
     }
 }
