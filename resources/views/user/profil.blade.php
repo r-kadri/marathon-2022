@@ -2,7 +2,7 @@
 @section('content')
     <h1>User profil de {{$user->name}}</h1>
     <div class="userinfo">
-        <img width="200px" src="/storage/{{ $user->avatar }}" alt="" srcset="">
+        <img width="200px" src="{{asset('/storage/'.$user->avatar)}}" alt="" srcset="">
         <form action="{{ route('uploadAvatar') }}" method="post" enctype="multipart/form-data">
             @csrf
             <label for="avatar">Modifier l'avatar</label><br>
@@ -40,7 +40,7 @@
             <ul>
                 @foreach ($user->likes as $liked)
                     <a href="{{route('exposition.show', ['exposition' => $liked]) }}"><li> {{$liked->nom }}</li></a>
-                @endforeach 
+                @endforeach
             </ul>
         @else
             <h4>Aucune oeuvre likée</h4>
