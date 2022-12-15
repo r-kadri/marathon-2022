@@ -1,28 +1,153 @@
-html{
+html {
     background-color: #141D77;
+}
+
+@media screen and (max-width:400px) {
+    html {
+        max-width: 400px;
+    }
+}
+
+/*************************
+        MENU
+*************************/
+.hamburger-menu{
+    display: none;
+}
+
+@media screen and (max-width:400px) {
+    .hamburger-menu{
+        display: block;
+    }
+    .menu__box li a {
+        text-decoration: none;
+        color: #141D77;
+        font-size: 30px;
+        padding: 5px 20px;
+        text-transform: uppercase;
+        font-family: 'Chau Philomene One', sans-serif;
+    }
+
+    #menu__toggle {
+        opacity: 0;
+    }
+
+    #menu__toggle:checked+.menu__btn>span {
+        transform: rotate(45deg);
+    }
+
+    #menu__toggle:checked+.menu__btn>span::before {
+        top: 0;
+        transform: rotate(0deg);
+    }
+
+    #menu__toggle:checked+.menu__btn>span::after {
+        top: 0;
+        transform: rotate(90deg);
+    }
+
+    #menu__toggle:checked~.menu__box {
+        left: 0 !important;
+    }
+
+    .menu__btn {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        width: 26px;
+        height: 26px;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    .menu__btn>span,
+    .menu__btn>span::before,
+    .menu__btn>span::after {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #616161;
+        transition-duration: .25s;
+    }
+
+    .menu__btn>span::before {
+        content: '';
+        top: -8px;
+    }
+
+    .menu__btn>span::after {
+        content: '';
+        top: 8px;
+    }
+
+    .menu__box {
+        display: block;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: -100%;
+        width: 300px;
+        height: 100%;
+        margin: 0;
+        padding: 80px 0;
+        list-style: none;
+        background-color: #ECEFF1;
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
+        transition-duration: .25s;
+    }
+
+    .menu__item {
+        display: block;
+        padding: 12px 24px;
+        color: #333;
+        font-family: 'Roboto', sans-serif;
+        font-size: 20px;
+        font-weight: 600;
+        text-decoration: none;
+        transition-duration: .25s;
+    }
+
+    .menu__item:hover {
+        background-color: #CFD8DC;
+    }
+}
+
+.nav-menu {
+    box-shadow: 0px 1px 1px #0c114c;
 }
 
 .nav-menu ul {
     display: flex;
     list-style-type: none;
     justify-content: space-evenly;
+    align-items: center;
 }
 
-.nav-menu ul li a{
+.nav-menu ul img {
+    max-width: 100%;
+    height: 100px;
+}
+
+.nav-menu ul li a {
     text-decoration: none;
     color: white;
+    font-size: 20px;
     padding: 5px 20px;
     text-transform: uppercase;
     font-family: 'Chau Philomene One', sans-serif;
+
 }
 
-.nav-menu ul li{
-    
+
+
+.nav-menu ul li {
+
     display: flex;
-    
+
 }
 
-.nav-menu ul .bjr{
+.nav-menu ul .bjr {
     background-color: #2DC8AC;
     border: solid 2px;
     border-color: #141D77;
@@ -33,47 +158,63 @@ html{
     font-family: 'Chau Philomene One', sans-serif;
 }
 
-.nav-menu ul  .rose{
+.nav-menu ul .rose {
     background-color: #FFB580;
-    outline-color:#FFB580;
+    outline-color: #FFB580;
     border: solid 2px;
     border-color: #141D77;
     box-shadow: -3px -3px 0px 0px #FFB580;
 }
 
-.nav-menu ul  .jaune{
+
+.nav-menu ul .jaune {
     background-color: #FFE809;
-    outline-color:#FFE809;
+    outline-color: #FFE809;
     border: solid 2px;
     border-color: #141D77;
     box-shadow: -3px -3px 0px 0px #FFE809;
 }
 
-.nav-menu ul  .bleu-clair{
+
+
+
+
+.nav-menu ul .bleu-clair {
     background-color: #67BDE0;
-    outline-color:#67BDE0;
+    outline-color: #67BDE0;
     border: solid 2px;
     border-color: #141D77;
     box-shadow: -3px -3px 0px 0px #67BDE0;
 }
 
-.nav-menu ul  .bleu-fonce{
+.nav-menu ul .bleu-fonce {
     background-color: #5C74DD;
-    outline-color:#5C74DD;
+    outline-color: #5C74DD;
     border: solid 2px;
     border-color: #141D77;
     box-shadow: -3px -3px 0px 0px #5C74DD;
 }
-.nav-menu ul  .vert{
+
+.nav-menu ul .vert {
     background-color: #2DC8AC;
-    outline-color:#2DC8AC;
+    outline-color: #2DC8AC;
     border: solid 2px;
     border-color: #141D77;
     box-shadow: -3px -3px 0px 0px #2DC8AC;
-    
+
 }
 
-.welcome{
+@media screen and (max-width:400px) {
+    .nav-menu {
+        display: none;
+    }
+}
+
+/***************************
+        PAGE ACCUEIL
+****************************/
+
+.welcome {
     margin-top: 100px;
     text-align: center;
     border: solid 3px #67BDE0;
@@ -81,14 +222,15 @@ html{
     width: 1024px;
     margin-left: auto;
     margin-right: auto;
+    z-index: 0;
 }
 
-.welcome img{
+.welcome img {
     max-width: 100%;
     height: 500px;
 }
 
-.welcome h1{
+.welcome h1 {
     font-size: 30px;
     font-family: 'Chau Philomene One', sans-serif;
     text-transform: uppercase;
@@ -98,35 +240,723 @@ html{
     top: -40px;
     left: 190px;
     padding-left: 100px;
-    padding-right: 100px ;
+    padding-right: 100px;
 
 }
 
-.home h1{
+@media screen and (max-width:400px) {
+    .welcome {
+        width: 400px;
+    }
+
+    .welcome img {
+        height: 200px;
+    }
+
+    .welcome h1 {
+        font-size: 10px;
+        padding: 0;
+        top: -20px;
+        padding: 5px 10px;
+        left: 120px;
+    }
+}
+
+/**********************
+    CONNECTE
+***********************/
+.home h1 {
     color: white;
-    font-size:80px ;
+    font-size: 80px;
     text-transform: uppercase;
     font-family: 'Chau Philomene One', sans-serif;
     text-align: center;
     margin-top: 300px;
 }
 
+/*******************************
+            SALLE
+*******************************/
 
-footer{
+.salle {
+    color: white;
+    font-family: 'Chau Philomene One', sans-serif;
+    font-size: 80px;
+    text-transform: uppercase;
+    margin-left: 50px;
+}
+
+.salle-choix {
+    display: grid;
+    grid-template-areas: "a b c"
+        "d e f"
+        "g g g";
+    gap: 5rem;
+}
+
+.salle-choix a {
+    height: 300px;
+    width: 300px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin: 0 auto;
+    text-decoration: none;
+    color: white;
+    font-family: 'Open sans Extra', sans-serif;
+    font-weight: 800;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+
+.NA {
+    grid-area: a;
+    background-color: #FD795D;
+    box-shadow: 16px 16px 0px 5px rgba(253, 121, 93, 0.36);
+}
+
+.EU {
+    grid-area: b;
+    background-color: #5C74DD;
+    box-shadow: 16px 16px 0px 5px rgba(92, 116, 221, 0.36);
+}
+
+.APAC {
+    grid-area: c;
+    background-color: #FFE809;
+    box-shadow: 16px 16px 0px 5px rgba(255, 232, 9, 0.36);
+}
+
+.LATAM {
+    grid-area: d;
+    background-color: #FFB580;
+    box-shadow: 16px 16px 0px 5px rgba(255, 181, 128, 0.36);
+}
+
+.MOMA {
+    grid-area: e;
+    background-color: #67BDE0;
+    box-shadow: 16px 16px 0px 5px rgba(103, 189, 224, 0.36);
+}
+
+.AUS {
+
+    grid-area: f;
+    background-color: #2DC8AC;
+    box-shadow: 16px 16px 0px 5px rgba(45, 200, 172, 0.36);
+}
+
+.salle-choix .masalle {
+    grid-area: g;
+    background-color: #FFF5CB;
+    box-shadow: 16px 16px 0px 5px rgba(255, 245, 203, 0.36);
+    width: 90%;
+    height: 200px;
+    color: black;
+}
+
+@media screen and (max-width:400px) {
+    .salle-choix {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
+/***********************************
+        LOGIN
+***********************************/
+
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #5C74DD;
+    width: 500px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    text-align: center;
+    font-family: 'Open sans Extra', sans-serif;
+    padding-bottom: 30px;
+    position: relative;
+}
+
+.login-form h1 {
+    text-transform: uppercase;
+    color: white;
+}
+
+.login-form a {
+    text-decoration: underline;
+    color: black;
+}
+
+.login-form::before {
+    content: " ";
+    width: 50px;
+    height: 50px;
+    background-color: #67BDE0;
+    top: -20px;
+    left: -40px;
+    position: absolute;
+    box-shadow: 30px 20px #2DC8AC, -50px -60px #67BDE0, -60px 20px #5C74DD;
+}
+
+.login-form::after {
+    content: " ";
+    width: 30px;
+    height: 30px;
+    background-color: #2DC8AC;
+    position: absolute;
+    right: -10px;
+    bottom: -20px;
+    box-shadow: 30px 20px #FFB580, 20px 40px #FD795D, -60px 20px #FFE809, 80px 50px #FFF5CB, 60px -10px #FFE809;
+}
+
+
+.login-form input {
+    border: none;
+    background-color: #2DC8AC;
+    width: 300px;
+    height: 30px;
+    margin: 20px;
+    text-align: center;
+    color: white;
+    font-family: 'Open sans';
+}
+
+.login-form input::placeholder {
+    font-family: 'Open Sans';
+    color: white;
+}
+
+.login-form input:focus {
+    outline: none;
+}
+
+.login-form .button {
+    color: white;
+    font-family: 'Open Sans';
+}
+
+@media screen and (max-width:400px){
+    .login-form{
+        width: 390px;
+    }
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #5C74DD;
+    width: 500px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    text-align: center;
+    font-family: 'Open sans Extra', sans-serif;
+    padding-bottom: 30px;
+    position: relative;
+}
+
+.register-form h1 {
+    text-transform: uppercase;
+    color: white;
+}
+
+.register-form a {
+    text-decoration: underline;
+    color: black;
+}
+
+.register-form::before {
+    content: " ";
+    width: 50px;
+    height: 50px;
+    background-color: #67BDE0;
+    top: -20px;
+    left: -40px;
+    position: absolute;
+    box-shadow: 30px 20px #2DC8AC, -50px -60px #67BDE0, -60px 20px #5C74DD;
+}
+
+.register-form::after {
+    content: " ";
+    width: 30px;
+    height: 30px;
+    background-color: #2DC8AC;
+    position: absolute;
+    right: -10px;
+    bottom: -20px;
+    box-shadow: 30px 20px #FFB580, 20px 40px #FD795D, -60px 20px #FFE809, 80px 50px #FFF5CB, 60px -10px #FFE809;
+}
+
+
+.register-form input {
+    border: none;
+    background-color: #2DC8AC;
+    width: 300px;
+    height: 30px;
+    margin: 20px;
+    text-align: center;
+    color: white;
+    font-family: 'Open sans';
+}
+
+.register-form input::placeholder {
+    font-family: 'Open Sans';
+    color: white;
+}
+
+.register-form input:focus {
+    outline: none;
+}
+
+.register-form .button {
+    color: white;
+    font-family: 'Open Sans';
+}
+
+@media screen and (max-width:400px) {
+    .register-form {
+        width: 400px;
+    }
+}
+
+/*********************************
+            OEUVRE
+**********************************/
+
+.page-oeuvre {
+    background-image: url('/images/bg-oeuvre.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+.page-oeuvre .link-oeuvre {
+    position: absolute;
+    top: 40%;
+    left: 450px;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 300px;
+    width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.page-oeuvre .link-oeuvre a {
+    text-decoration: none;
+    font-family: 'Chau Philomene One', sans-serif;
+    color: white;
+    font-size: 55px;
+
+}
+
+.page-oeuvre .link-oeuvre svg {
+    position: absolute;
+    bottom: 50px;
+    right: 20px;
+}
+
+@media screen and (max-width:400px) {
+    .page-oeuvre {
+        width: 400px;
+    }
+
+    .page-oeuvre .link-oeuvre {
+        left: 50px;
+        top: 350px;
+        width: 300px;
+        height: 150px;
+    }
+
+    .page-oeuvre .link-oeuvre a {
+        font-size: 15px;
+    }
+}
+
+.oeuvre-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.oeuvre {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 20px;
+    max-width: 1000px;
+    flex-basis: 20%;
+}
+
+
+.oeuvre img {
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    filter: blur(2px);
+    aspect-ratio: 1/1;
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+
+}
+
+.oeuvre .card {
+    position: relative;
+
+}
+
+
+.oeuvre-content .oeuvre .description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2DC8AC;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 0%;
+    transition: 1s ease;
+    font-family: Poppins;
+    color: white;
+}
+
+
+
+.oeuvre .card:hover .description {
+    height: 100%;
+}
+
+.oeuvre .card:hover .description h2 {
+    display: flex;
+}
+
+.oeuvre .card:hover .description p {
+    display: flex;
+}
+
+.oeuvre .card:hover .description .plus {
+    display: flex;
+}
+
+.description .plus {
+    display: none;
+    text-decoration: none;
+    color: black;
+    padding: 5px 15px;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.description h2 {
+    display: none;
+}
+
+.description p {
+    display: none;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+.popup.active {
+    display: inline-block;
+}
+
+.popup-content {
+    position: fixed;
+    left: 50%;
+    top: 5%;
+    transform: translateX(-50%);
+    max-height: 90%;
+    min-width: 520px;
+    width: 1200px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transition: top 250ms linear, opacity 200ms linear;
+    margin: 0 auto;
+}
+
+.popup-content.active::before {
+    content: " ";
+    width: 50px;
+    height: 50px;
+    background-color: #67BDE0;
+    top: -20px;
+    left: -40px;
+    position: absolute;
+    box-shadow: 30px 20px #2DC8AC, -50px -60px #67BDE0, -60px 20px #5C74DD;
+}
+
+.popup-content.active::after {
+    content: " ";
+    width: 30px;
+    height: 30px;
+    background-color: #2DC8AC;
+    position: absolute;
+    right: -10px;
+    bottom: -20px;
+    box-shadow: 30px 20px #FFB580, 20px 40px #FD795D, -60px 20px #FFE809, 80px 50px #FFF5CB, 60px -10px #FFE809;
+}
+
+
+.popup-content.active {
+    opacity: 1;
+    top: 15% !important;
+
+}
+
+.popup-body {
+    height: 100%;
+    overflow-y: auto;
+    background-color: #141D77;
+    border: solid 2px #FFF5CB;
+    padding: 2px;
+    margin-top: 10px;
+}
+
+.popup-body .contenue {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.popup-body .contenue img {
+    max-height: 100%;
+}
+
+.popup-body .contenue .texte {
+    flex-basis: 50%;
+    font-family: 'Chau Philomene One', sans-serif;
+    color: white;
+}
+
+.popup-body h1 {
+    color: #234DFF;
+    font-size: 50px;
+}
+
+.btn {
+    height: 10%;
+    padding: 2%;
+    display: flex;
+    justify-content: flex-end;
+    background-color: #141D77;
+}
+
+.btn-close {
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px 30px;
+    background-color: #FD795D;
+    color: white;
+    font-family: 'Chau Philomene One', sans-serif;
+}
+
+@media screen and (max-width:400px) {
+    .oeuvre-content {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .oeuvre {
+        flex-direction: column;
+    }
+
+    .popup-content.active {
+        width: 300px;
+        min-width: 100px;
+        left: 0;
+        transform: translateX(5px);
+    }
+
+    .popup-body {
+        width: 390px;
+    }
+
+    .popup-body .contenue {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
+/******************************
+            A PROPOS
+*****************************/
+
+
+.apropos {
+    text-align: center;
+    color: white;
+    font-family: 'Chau Philomene One', sans-serif;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.apropos p {
+    text-align: justify;
+}
+
+.apropos .choix-apropos {
+    display: flex;
+    justify-content: center;
+}
+
+.apropos .choix-apropos a {
+    display: flex;
+    text-decoration: none;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    width: 350px;
+    height: 100px;
+    font-size: 20px;
+    font-family: 'Chau Philomene One', sans-serif;
+    background-color: #5C74dd;
+}
+
+@media screen and (max-width:400px) {
+    .apropos {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .apropos .choix-apropos {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/********************************
+        ARTICLE
+********************************/
+
+.article {
+    text-align: center;
+    color: white;
+    font-family: 'Chau Philomene One', sans-serif;
+    font-size: 30px;
+}
+
+.article a {
+    text-decoration: none;
+    color: white;
+    margin: 10px;
+}
+
+.contenu-article {
+    text-align: center;
+    color: white;
+    margin: 50px;
+}
+
+.contenu-article h1 {
+    font-family: 'Chau Philomene One', sans-serif;
+    font-size: 50px;
+    text-transform: uppercase;
+}
+
+.contenu-article p {
+    font-family: 'Open sans';
+    text-align: justify;
+}
+
+@media screen and (max-width:400px) {
+    .article {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/*********************************
+            ITW
+*********************************/
+
+.itw h1 {
+    font-family: 'Chau Philomene One', sans-serif;
+    color: white;
+    font-size: 30px;
+    margin-left: 100px;
+}
+
+/************************
+        PAGE PROFIL
+*************************/
+
+.monprofile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.monprofile a {
+    text-decoration: none;
+    color: black;
+    width: 300px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #5C74DD;
+    font-family: 'Open sans';
+    margin: 30px;
+}
+
+.monprofile a svg {
+    margin-left: 30px;
+}
+
+/***************************
+            FOOTER
+***************************/
+footer {
     background-color: white;
     height: 200px;
     text-align: center;
     margin-top: 150px;
 }
 
-footer a{
+footer a {
     text-decoration: none;
     color: black;
     font-size: 10px;
     margin: 10px;
 }
 
-footer img{
+footer img {
     max-width: 100%;
     height: 150px;
+}
+
+@media screen and (max-width:400px) {
+    footer {
+        width: 400px;
+    }
 }
