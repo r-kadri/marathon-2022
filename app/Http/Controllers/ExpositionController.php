@@ -22,6 +22,7 @@ class ExpositionController extends Controller
         $param_auteur = $request->input('auteur', null);
         $salle_n = $request->input('n_salle', 1);
         $recherche = $request->input('recherche',null);
+        $tab=["AmeriqueNord","europe","asie","AmeriqueSud","Afrique","oceanie"];
         if ($param_auteur !== null) {
             $liste_oeuvres = [];
             foreach ($oeuvres as $oeuvre) {
@@ -89,7 +90,7 @@ class ExpositionController extends Controller
                 }
             $oeuvres = $liste_oeuvres;
         }
-        return view('exposition.index', [
+        return view($tab[$salle_n-1], [
             'salle'=> $salle_n,
             'liste_salle_adjacentes'=>$liste_salle_adjacentes,
             'oeuvres'=> $oeuvres,
@@ -98,6 +99,7 @@ class ExpositionController extends Controller
             'tags'=> $tags,
         ]);
     }
+
 
     /**
      * Afficher le détail d'une oeuvre

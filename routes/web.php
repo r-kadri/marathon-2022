@@ -58,10 +58,10 @@ Route::get('/AmeriqueSud', function () {
     return view('AmeriqueSud');
 })->name('AmeriqueSud');
 Route::get('/europe', function () {
-    return view('europe');
+    return view('europe',['n_salle'=>2]);
 })->name('europe');
 Route::get('/asie', function () {
-    return view('asie');
+    return view('asie',['asie'=>3]);
 })->name('asie');
 Route::get('/oceanie', function () {
     return view('oceanie');

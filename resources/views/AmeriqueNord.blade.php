@@ -13,15 +13,6 @@
         </select>
         <input type="submit" value="Recherche">
     </form>
-    <form action="{{route('exposition.index',["n_salle"=>$salle])}}" method="get">
-        <select name="tag">
-            <option value="" selected>-- Tous tag --</option>
-            @foreach($tags as $tag)
-            <option value="{{$tag->id}}" @if($param_tag==$tag) selected @endif>{{$tag->intitule}}</option>
-            @endforeach
-        </select>
-        <input type="submit" value="Recherche">
-    </form>
     @foreach($liste_salle_adjacentes as $page)
     <a class="switch" href="{{ route('exposition.index',["deplacement"=>'true',"n_salle"=>$page])}}">Vers page n°{{$page}}</a></br>
     @endforeach
