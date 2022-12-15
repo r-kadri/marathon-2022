@@ -3,6 +3,21 @@
 @section('content')
 <h1 class="title-salle">Europe</h1>
 
+<div class="trie">
+    <form action="{{route('exposition.index',["n_salle"=>$salle])}}" method="get">
+        <select name="auteur">
+            <option value="" selected>-- Tous nom d'auteur --</option>
+            @foreach($auteurs as $auteur)
+                <option value="{{$auteur}}" @if($param_auteur==$auteur) selected @endif>{{$auteur}}</option>
+            @endforeach
+        </select>
+        <input type="submit" value="Recherche">
+    </form>
+    @foreach($liste_salle_adjacentes as $page)
+        <a class="switch" href="{{ route('exposition.index',["deplacement"=>'true',"n_salle"=>$page])}}">Vers page n°{{$page}}</a></br>
+    @endforeach
+</div>
+
 <section id="slider">
   <input type="radio" name="slider" id="s1" checked>
   <input type="radio" name="slider" id="s2">
