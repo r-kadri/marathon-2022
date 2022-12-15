@@ -173,4 +173,12 @@ class ExpositionController extends Controller
 
         return redirect()->route('exposition.index');
     }
+
+    /**
+     * Affiche 6 oeuvres sur la page principale
+     */
+    public function oeuvres() {
+        $oeuvres = Oeuvre::all()->take(6);
+        return view('oeuvre', ['oeuvres' => $oeuvres]);
+    }
 }

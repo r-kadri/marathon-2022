@@ -24,9 +24,7 @@ Route::get('/salle', function () {
     return view('salle');
 })->name('salle');
 
-Route::get('/oeuvre', function () {
-    return view('oeuvre');
-})->name('oeuvre');
+Route::get('/oeuvre', [ExpositionController::class, 'oeuvres'])->name('oeuvre');
 
 Route::get('/apropos', function () {
     return view('apropos');
