@@ -48,7 +48,7 @@ On crée ensuite une autre méthode valideOeuvre(), qui permet d'analyser la req
 Ensuite, dans notre index, on ajoute également un if permettant de voir si l'utilisateur connecté est un administrateur, si c'est un administrateur, il aura accès à deux boutons qui permettant de soit refuser, ou accepter la requête de création de l'oeuvre.
 
 Je me suis également occupé avec Ryan de fixer quelques bugs que nous avions, comme par exemple pour l'affichage des images
-### Partie de clement
+# Partie de clement
 j'ai effectuer la vue index avec d'affichage de touts les oeuvres puis j'ai effectuer les differents filtres qui sont appliquer
 (j'ai fait un filtre) pour trier les oeuvre et garder que celle avec l'auteur selectioner dans le menu deroulan
 (et un filtre pour les tags mais j'ai abandoner en m'apercevant que c'estait pas demander)
@@ -56,6 +56,10 @@ je me suis chargé aussi des salles et du deplacement dans celles si en pouvant 
 ensuite j'ai du modifier le filtre du tris pour les auteurs pour que les auteur dans le filtre sont les auteur uniquement present dans
 la salle actuelle.
 je me suis aussi occupé des routes poermetant de naviguer entre les differentes vue.
+j'ai rencontrer pluiseurs problèmes dans la creation de l'index surtout lors de l'integration en effet imposible de recuperer les bonnes
+donnné de la base de donné pour les integre nous avon spourtant comencer a faire l'integration assé tot dans le projet .
+deplus j'ai aussi passé pas mal de temp sur le filtre pour les tags  en effet celui si etait particulièrement compicé a trouver 
+les bonnes oeuvre qui sont concerné dans la BD.
 
 ## Partie de Ryan KADRI  
 

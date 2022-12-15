@@ -11,4 +11,5 @@
         <a class="AUS" href="{{route('exposition.index',['n_salle'=>6])}}">Océanie</a>
         <a class="masalle" href="{{route('exposition.index')}}">Ma Salle</a>
     </div>
+    <a href="{{route('exposition.index')}}">sas css</a>
 @endsection
