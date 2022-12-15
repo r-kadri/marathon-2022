@@ -10,5 +10,6 @@
         <a class="MOMA" href="">Afrique</a>
         <a class="AUS" href="">Océanie</a>
         <a class="masalle" href="">Ma Salle</a>
+        <a href="{{ route('exposition.create') }}">Nouvelle oeuvre</a>
     </div>
 @endsection

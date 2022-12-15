@@ -1,4 +1,4 @@
-@extends('layouts.app')
+    @extends('layouts.app')
 
 @section('content')
 <div class="page-oeuvre">
@@ -18,14 +18,14 @@
                 <p>présentation</p>
                 <button class="plus" data-popup-ref="monPopup9">Voir +</button>
             </div>
-            
+
             <div class="popup" data-popup-id="monPopup9">
                 <div class="popup-content">
                     <div class="popup-body">
                         <div class="contenue">
                             <img src="/images/d74774ce15db8411c5dd0e30155a02f4.jpg" alt="">
                             <div class="texte">
-                                
+
                                 <p>
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti eligendi facere deserunt laudantium suscipit non illum voluptas! Blanditiis cum dolorem perferendis laudantium fugiat error ipsam sequi incidunt doloremque ullam. Fugiat!
                                 </p>
@@ -47,7 +47,7 @@
                 <p>présentation</p>
                 <button class="plus" data-popup-ref="monPopup9">Voir +</button>
             </div>
-            
+
             <div class="popup" data-popup-id="monPopup9">
                 <div class="popup-content">
                     <div class="popup-body">
@@ -75,7 +75,7 @@
                 <p>présentation</p>
                 <button class="plus" data-popup-ref="monPopup9">Voir +</button>
             </div>
-            
+
             <div class="popup" data-popup-id="monPopup9">
                 <div class="popup-content">
                     <div class="popup-body">
@@ -103,7 +103,7 @@
                 <p>présentation</p>
                 <button class="plus" data-popup-ref="monPopup9">Voir +</button>
             </div>
-            
+
             <div class="popup" data-popup-id="monPopup9">
                 <div class="popup-content">
                     <div class="popup-body">
@@ -131,7 +131,7 @@
                 <p>présentation</p>
                 <button class="plus" data-popup-ref="monPopup9">Voir +</button>
             </div>
-            
+
             <div class="popup" data-popup-id="monPopup9">
                 <div class="popup-content">
                     <div class="popup-body">
@@ -159,7 +159,7 @@
                 <p>présentation</p>
                 <button class="plus" data-popup-ref="monPopup9">Voir +</button>
             </div>
-            
+
             <div class="popup" data-popup-id="monPopup9">
                 <div class="popup-content">
                     <div class="popup-body">
