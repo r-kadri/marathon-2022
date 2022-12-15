@@ -15,14 +15,15 @@ use Illuminate\Support\Facades\Auth;
 
 class ExpositionController extends Controller
 {
-    public function index(Request $request){
+    public function index(Request $request)
+    {
         $oeuvres = Oeuvre::all();
         $tags = Tag::all();
-        $param_auteur = $request->input('auteur',null);
-        $param_tag = $request->input('tag',null);
-        $deplacement = $request->input('deplacement',null);
-        $salle_n = $request->input('n_salle',1);
-        if($param_auteur !== null) {
+        $param_auteur = $request->input('auteur', null);
+        $salle_n = $request->input('n_salle', 1);
+        $recherche = $request->input('recherche',null);
+        $tab=["AmeriqueNord","europe","asie","AmeriqueSud","Afrique","oceanie"];
+        if ($param_auteur !== null) {
             $liste_oeuvres = [];
             foreach ($oeuvres as $oeuvre) {
                 if ($oeuvre->auteur === $param_auteur) {
@@ -30,47 +31,75 @@ class ExpositionController extends Controller
                     $salle_n = $oeuvre->salle->id;
                 }
             }
-            $oeuvres=$liste_oeuvres;
-        }
-        if($param_tag !== null){
-            $oeuvres=Oeuvre::all();
-            $liste_tags=[];
-            foreach ($oeuvres as $oeuvre){
-                foreach ($oeuvre->tags as $tag){
-                    if(strval($tag->id)=== $param_tag){
-                        $liste_tags[]=$oeuvre;
-                    }
-                }
-            }
-            $oeuvres = $liste_tags;
+            $oeuvres = $liste_oeuvres;
         }
         $liste_oeuvres = [];
         foreach ($oeuvres as $oeuvre) {
-            if($oeuvre->salle->id == $salle_n){
-                $liste_oeuvres[]=$oeuvre;
+            if ($oeuvre->salle->id == $salle_n) {
+                $liste_oeuvres[] = $oeuvre;
             }
         }
-        $oeuvres=$liste_oeuvres;
+
+        $oeuvres = $liste_oeuvres;
         $auteurs = [];
         $salle = Salle::find($salle_n);
-        foreach ($salle->oeuvres as $oeuvre){
-            $auteurs[]=$oeuvre->auteur;
+        foreach ($salle->oeuvres as $oeuvre) {
+            $auteurs[] = $oeuvre->auteur;
         }
+        $tags_lst = [];
+        foreach ($salle->oeuvres as $oeuvre) {
+            if($oeuvre->salle->id == $salle_n) {
+                foreach ($oeuvre->tags as $tag) {
+                    $est_presten = false;
+                    if(count($tags_lst)==0){
+                        $tags_lst [] = $tag;
+                    }
+                    foreach ($tags_lst as $tags_l){
+                        if($tags_l->intitule == $tag->intitule){
+                            $est_presten = true;
+                        }
+                    }
+                    if(!$est_presten) {
+                        $tags_lst [] = $tag;
+                    }
+                }
+            }
+        }
+        $tags = $tags_lst;
         $salle_adjacentes = $salle->suivantes;
         $liste_salle_adjacentes =[];
         for($i=0;$i<count($salle_adjacentes);$i++){
             $liste_salle_adjacentes[]=$salle_adjacentes[$i]->id;
         }
-        return view('exposition.index', [
+        if($recherche !== null){
+            $oeuvres = Oeuvre::all();
+            $liste_oeuvres = [];
+            foreach ($oeuvres as$oeuvre){
+                foreach($oeuvre->tags as $tag){
+                    if($tag->intitule == $recherche){
+                        $liste_oeuvres[]=$oeuvre;
+                    }
+                }
+            }
+            if(count($liste_oeuvres)==0){
+                foreach ($oeuvres as $oeuvre){
+                        if($oeuvre->nom == $recherche){
+                            $liste_oeuvres[]=$oeuvre;
+                        }
+                    }
+                }
+            $oeuvres = $liste_oeuvres;
+        }
+        return view($tab[$salle_n-1], [
             'salle'=> $salle_n,
             'liste_salle_adjacentes'=>$liste_salle_adjacentes,
             'oeuvres'=> $oeuvres,
             'auteurs' => $auteurs,
             'param_auteur' => $param_auteur,
-            'param_tag' => $param_tag,
             'tags'=> $tags,
         ]);
     }
+
 
     /**
      * Afficher le détail d'une oeuvre
@@ -112,7 +141,7 @@ class ExpositionController extends Controller
         $salles = Salle::all();
 
         if(Auth::user()){
-            return view('exposition.create');
+            return view('exposition.create', ['salles' => $salles]);
 
         }
         return redirect()->route('exposition.index', ['salles'=>$salles]);
@@ -169,6 +198,14 @@ class ExpositionController extends Controller
             $oeuvre->delete();
         }
 
-        return redirect()->route('exposition.show', ['exposition' => $oeuvre]);
+        return redirect()->route('exposition.index');
+    }
+
+    /**
+     * Affiche 6 oeuvres sur la page principale
+     */
+    public function oeuvres() {
+        $oeuvres = Oeuvre::all()->take(6);
+        return view('oeuvre', ['oeuvres' => $oeuvres]);
     }
 }
