@@ -70,7 +70,13 @@ simplicité afin d'évoluer sur notre projet tous ensemble.
  
 ## Partie de Ryan KADRI  
 
-Suite à la répartition des tâches, j'ai commencé ce que j'avais à faire.
-J'ai fait principalement la page qui détail une oeuvre, notamment l'ajout et la validation de commentaires par un admin. On peut liker une oeuvre, la commenter, etc.
-J'ai également fait la page profile de l'utilisateur qui récapitule les informations, likes, commentaires.
+Suite à la répartition des tâches, j'ai directement commencé mon travail.  
+Je sais maintenant que c'était une erreur car il était préférable de discuter avec le reste du groupe pour se mettre d'accord sur contenu des pages, surtout pour l'intégration du front-end.  
+Je suis très content du travail de mon équipe et c'était une expérience enrichissante.  
+
+#### Principales tâches réalisées :  
+
+Mon travail consistait était surtout focalisée sur la page qui détail une oeuvre, et la page du profil d'un utilisateur.  
+L'utilisateur connecté au site peut liker une oeuvre, y ajouter un commentaire qui sera en attente de validation.  
+L'utilisateur peut également modifier son avatar et voir un récapitulatif de ses oeuvres likées, ses commentaires.
 
